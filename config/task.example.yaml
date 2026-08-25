@@ -1,0 +1,18 @@
+schema_version: 1
+task_id: EXAMPLE-001
+status: pending
+worker_role: example
+repository: Gordonfive/example-project
+base_branch: workstream/example
+task_file: docs/coordination/tasks/EXAMPLE-001.md
+report_path: docs/coordination/reports/example/EXAMPLE-001.md
+permissions:
+  production_access: prohibited
+  destructive_operations: prohibited
+  force_push: prohibited
+completion:
+  require_tests: true
+  require_commit: true
+  require_push: true
+  require_report: true
+  stop_after_report: true
