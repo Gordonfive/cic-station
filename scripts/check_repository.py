@@ -38,7 +38,9 @@ SECRET_PATTERNS = {
     "Slack token": re.compile(r"\bxox[baprs]-[A-Za-z0-9-]{20,}\b"),
 }
 LINK = re.compile(r"!?\[[^\]]*\]\(([^)]+)\)")
-REQ = re.compile(r"\bMC-REQ-\d{4}\b")
+REQ = re.compile(r"MC-REQ-\d{4}")
+REQ_TOKEN = re.compile(r"\bMC-REQ-[A-Za-z0-9_-]+\b")
+REQ_DEFINITION = re.compile(r"(?m)^- \*\*(MC-REQ-[A-Za-z0-9_-]+)\b")
 ADR_FILE = re.compile(r"ADR-(\d{4})-[a-z0-9-]+\.md$")
 SEMVER = re.compile(
     r"(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)"
@@ -67,7 +69,6 @@ def main() -> int:
     if build_path.is_file() and not BUILD_ID.fullmatch(build_path.read_text(encoding="utf-8").strip()):
         failures.append("BUILD_NUMBER must contain a numeric build identifier of at least four digits")
 
-    requirement_definitions: dict[str, list[pathlib.Path]] = {}
     adr_numbers: dict[str, pathlib.Path] = {}
 
     for path in ROOT.rglob("*"):
@@ -81,10 +82,6 @@ def main() -> int:
         for name, pattern in SECRET_PATTERNS.items():
             if pattern.search(text):
                 failures.append(f"credential pattern {name}: {path.relative_to(ROOT)}")
-
-        if path == ROOT / "docs/REQUIREMENTS.md":
-            for req_id in REQ.findall(text):
-                requirement_definitions.setdefault(req_id, []).append(path)
 
         if path.parent == ROOT / "docs/decisions" and path.name != "README.md":
             match = ADR_FILE.fullmatch(path.name)
@@ -107,15 +104,24 @@ def main() -> int:
                 if target and not (path.parent / target).resolve().exists():
                     failures.append(f"broken relative link: {path.relative_to(ROOT)} -> {target}")
 
-    for req_id, locations in requirement_definitions.items():
-        if len(locations) != 1:
-            failures.append(f"duplicate requirement definition: {req_id}")
-
     requirements_path = ROOT / "docs/REQUIREMENTS.md"
     if requirements_path.is_file():
-        ids = REQ.findall(requirements_path.read_text(encoding="utf-8"))
-        if len(ids) != len(set(ids)):
-            failures.append("duplicate MC-REQ identifier in docs/REQUIREMENTS.md")
+        requirements_text = requirements_path.read_text(encoding="utf-8")
+
+        invalid_ids = sorted({token for token in REQ_TOKEN.findall(requirements_text) if not REQ.fullmatch(token)})
+        for req_id in invalid_ids:
+            failures.append(f"invalid requirement identifier: {req_id}")
+
+        definitions = REQ_DEFINITION.findall(requirements_text)
+        valid_definitions = [req_id for req_id in definitions if REQ.fullmatch(req_id)]
+        seen: set[str] = set()
+        duplicate_definitions: set[str] = set()
+        for req_id in valid_definitions:
+            if req_id in seen:
+                duplicate_definitions.add(req_id)
+            seen.add(req_id)
+        for req_id in sorted(duplicate_definitions):
+            failures.append(f"duplicate requirement definition: {req_id}")
 
     if failures:
         for failure in failures:
