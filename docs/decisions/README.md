@@ -31,5 +31,6 @@ ADR numbers are assigned only on the integration branch/PR and are never reused 
 - `ADR-0011-versioning-and-build-identifiers.md`
 - `ADR-0012-rename-product-to-cic-station.md`
 - `ADR-0013-operator-identity-and-access-control.md`
+- `ADR-0014-encrypted-transport-baseline.md`
 
 Do not maintain a second full-text decision register.
