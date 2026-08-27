@@ -9,7 +9,7 @@ Requirement identifiers are permanent once merged to `main`. Superseded or withd
 - **MC-REQ-0003 — Authenticated API.** Mission Control must expose authenticated programmatic operations for supported fleet-management workflows.
 - **MC-REQ-0004 — Optional hosted service.** Any future hosted service must not weaken self-hosting as a first-class deployment model.
 - **MC-REQ-0005 — Independent versioning.** Mission Control uses its own Semantic Versioning lifecycle, independent of Vincent and installer builds.
-- **MC-REQ-0006 — Public/private separation.** Reusable Mission Control application source must remain separate from private deployment/fleet state.
+- **MC-REQ-0006 — Source/operational-data separation.** Reusable Mission Control application source must remain separate from private operational data, deployment secrets, and production configuration. Operational fleet state belongs in the deployed database and protected systems rather than Git.
 
 ## Vincent independence and network boundary
 
@@ -86,7 +86,7 @@ Requirement identifiers are permanent once merged to `main`. Superseded or withd
 - **MC-REQ-0056 — Maintenance/drain state.** Workers undergoing planned maintenance must stop receiving new assignments and preserve active work according to policy.
 - **MC-REQ-0057 — Release traceability.** Mission Control releases must identify exact source, version, relevant protocol compatibility, known limitations, and validation evidence.
 - **MC-REQ-0058 — Release changelog.** A concise `CHANGELOG.md` must be maintained at release boundaries.
-- **MC-REQ-0059 — AGPLv3 application license.** Reusable public Mission Control application source must use AGPLv3.
+- **MC-REQ-0059 — AGPLv3 application license.** At the owner-approved public-release gate, the reusable Mission Control application source must be released under AGPLv3 after a complete history, secret, privacy, infrastructure, and configuration audit.
 - **MC-REQ-0060 — External contributions deferred.** Outside pull requests are not accepted until the owner intentionally reopens contribution policy at 1.0 or later.
 
 ## Requirement maintenance
