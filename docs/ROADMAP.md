@@ -1,8 +1,8 @@
-# Mission Control Product Roadmap
+# CIC Station Product Roadmap
 
-This roadmap contains Mission Control product/release outcomes only. The cross-product Vincent + Mission Control roadmap is `PROGRAM_ROADMAP.md`.
+This roadmap contains CIC Station product/release outcomes only. The cross-product Vincent + CIC Station roadmap is `PROGRAM_ROADMAP.md`.
 
-Mission Control versions independently using Semantic Versioning. Pre-1.0 development uses `0.x.y`; the first release satisfying accepted 1.0 criteria becomes `1.0.0`.
+CIC Station versions independently using Semantic Versioning. Pre-1.0 development uses `0.x.y`; the first release satisfying accepted 1.0 criteria becomes `1.0.0`.
 
 ## 0.1 — Product and data-model foundation
 
@@ -69,7 +69,7 @@ Mission Control versions independently using Semantic Versioning. Pre-1.0 develo
 
 ## 1.0.0 acceptance
 
-Mission Control 1.0 must be operationally trustworthy rather than merely feature-rich. At minimum it must prove:
+CIC Station 1.0 must be operationally trustworthy rather than merely feature-rich. At minimum it must prove:
 
 - self-hosted API/database/web UI;
 - explicit enrollment, least-privileged authorization, revocation, and audit;
