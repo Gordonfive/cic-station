@@ -9,18 +9,18 @@
 - A third application repository is not planned. Private fleet information will be stored as deployed application data, with secrets and production configuration outside Git.
 - CIC Station is currently `0.1.0` build `0001`.
 - No CIC Station service, API, database schema, or web UI implementation has started yet; the repository currently contains the canonical product/governance/security model and validation scaffolding.
+- `main` is currently the only branch. Automatic deletion of merged temporary branches is enabled.
 - GitHub branch-protection/ruleset enforcement is intentionally deferred until the public-release gate on the current repository plan. PR, CI, squash-merge, no-force-push, and branch-cleanup rules remain procedural requirements while private.
-- Automatic deletion of newly merged temporary branches is enabled; the older merged PR #15 QA branch predates that setting and remains as cleanup debt.
 
 ## Current program state
 
 - The canonical documentation/governance reset is complete in both CIC Station and Vincent.
-- Vincent's ISO consolidation was merged through PR #26. Vincent is now in post-consolidation QA before physical Installer `0.1.0` build `0022` verification.
-- Vincent draft PR #32 contains bounded post-consolidation QA fixes and remains separate from CIC Station implementation.
+- Vincent's ISO consolidation is integrated on `main`; Vincent remains in post-consolidation QA before physical Installer `0.1.0` build `0022` verification.
+- Vincent QA/fix activity remains separate from CIC Station implementation and is tracked in the Vincent repository rather than duplicated here.
 - The large workstation is intended to remain the first useful persistent Vincent worker and future first managed-worker CIC Station subject.
 - The old laptop remains the expendable installer/recovery test target.
 - CIC Station's first implementation proof may use conservative Git-backed coordination, but the product architecture is a self-hosted API/database/web application.
-- The 0.1.0 security baseline now includes distinct operator identities, self-hostable local authentication, explicit least-privilege authorization, one-time first-admin bootstrap, revocable server-side sessions, separate service identities, administrative authentication recovery, and encrypted real operator/worker transport.
+- The 0.1.0 security baseline includes distinct operator identities, self-hostable local authentication, explicit least-privilege authorization, one-time first-admin bootstrap, revocable server-side sessions, separate service identities, administrative authentication recovery, and encrypted real operator/worker transport.
 - External OIDC/SSO, mTLS, certificate-authority selection, and reverse-proxy choice remain optional/later implementation decisions rather than baseline dependencies.
 - Reusable CIC Station application coding may begin in this repository under the documented source/operational-data and security boundaries.
 
