@@ -1,4 +1,4 @@
-# Contributing to Mission Control
+# Contributing to CIC Station
 
 ## Current contribution policy
 
@@ -24,7 +24,7 @@ Update the canonical document for the type of change:
 - consequential architecture/policy decision → new ADR;
 - implementation architecture → `docs/ARCHITECTURE.md`;
 - cross-product milestone → `docs/PROGRAM_ROADMAP.md`;
-- Mission Control release outcome → `docs/ROADMAP.md`;
+- CIC Station release outcome → `docs/ROADMAP.md`;
 - current implementation/test state → `docs/STATUS.md`;
 - unscheduled idea/work → GitHub issue.
 
@@ -36,4 +36,4 @@ Never commit raw secrets, credentials, authentication caches, production data, p
 
 ## Releases
 
-Mission Control versions independently using SemVer. Pre-1.0 versions use `0.x.y`; the first accepted 1.0 release is `1.0.0`. Update `CHANGELOG.md` at release boundaries and use Git tags/GitHub Releases for exact release commits and fuller release notes.
+CIC Station versions independently using SemVer. Pre-1.0 versions use `0.x.y`; the first accepted 1.0 release is `1.0.0`. Update `CHANGELOG.md` at release boundaries and use Git tags/GitHub Releases for exact release commits and fuller release notes.

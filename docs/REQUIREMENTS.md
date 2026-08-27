@@ -1,26 +1,26 @@
-# Mission Control Requirements
+# CIC Station Requirements
 
 Requirement identifiers are permanent once merged to `main`. Superseded or withdrawn requirements retain their IDs and history; IDs are never reused.
 
 ## Product and deployment
 
-- **MC-REQ-0001 — Self-hostable control plane.** Mission Control must be deployable as a self-hosted server application.
-- **MC-REQ-0002 — Browser UI.** Mission Control must provide a responsive web interface suitable for desktop, tablet, and phone operation.
-- **MC-REQ-0003 — Authenticated API.** Mission Control must expose authenticated programmatic operations for supported fleet-management workflows.
+- **MC-REQ-0001 — Self-hostable control plane.** CIC Station must be deployable as a self-hosted server application.
+- **MC-REQ-0002 — Browser UI.** CIC Station must provide a responsive web interface suitable for desktop, tablet, and phone operation.
+- **MC-REQ-0003 — Authenticated API.** CIC Station must expose authenticated programmatic operations for supported fleet-management workflows.
 - **MC-REQ-0004 — Optional hosted service.** Any future hosted service must not weaken self-hosting as a first-class deployment model.
-- **MC-REQ-0005 — Independent versioning.** Mission Control uses its own Semantic Versioning lifecycle, independent of Vincent and installer builds.
-- **MC-REQ-0006 — Source/operational-data separation.** Reusable Mission Control application source must remain separate from private operational data, deployment secrets, and production configuration. Operational fleet state belongs in the deployed database and protected systems rather than Git.
+- **MC-REQ-0005 — Independent versioning.** CIC Station uses its own Semantic Versioning lifecycle, independent of Vincent and installer builds.
+- **MC-REQ-0006 — Source/operational-data separation.** Reusable CIC Station application source must remain separate from private operational data, deployment secrets, and production configuration. Operational fleet state belongs in the deployed database and protected systems rather than Git.
 
 ## Vincent independence and network boundary
 
-- **MC-REQ-0007 — Vincent independence.** Vincent must remain capable of installation, boot, diagnostics, maintenance, trusted updates, and standalone operation without Mission Control.
-- **MC-REQ-0008 — Explicit enrollment.** Mission Control authority begins only after explicit worker enrollment.
+- **MC-REQ-0007 — Vincent independence.** Vincent must remain capable of installation, boot, diagnostics, maintenance, trusted updates, and standalone operation without CIC Station.
+- **MC-REQ-0008 — Explicit enrollment.** CIC Station authority begins only after explicit worker enrollment.
 - **MC-REQ-0009 — Outbound worker connection.** Routine worker/control-plane communication must be initiated outbound by Vincent where practical.
-- **MC-REQ-0010 — No general remote shell.** Mission Control must not expose arbitrary shell execution as its ordinary fleet-control interface.
+- **MC-REQ-0010 — No general remote shell.** CIC Station must not expose arbitrary shell execution as its ordinary fleet-control interface.
 
 ## Identity, enrollment, and authorization
 
-- **MC-REQ-0011 — Unique worker identity.** Every installation enrolled into Mission Control must have a distinct durable security identity.
+- **MC-REQ-0011 — Unique worker identity.** Every installation enrolled into CIC Station must have a distinct durable security identity.
 - **MC-REQ-0012 — Enrollment request.** A fresh worker must present inspectable non-secret enrollment information before authorization.
 - **MC-REQ-0013 — Explicit approval.** Enrollment must require an authorized approval action.
 - **MC-REQ-0014 — Revocation.** One worker's authority must be revocable without disabling unrelated workers.
@@ -30,11 +30,11 @@ Requirement identifiers are permanent once merged to `main`. Superseded or withd
 
 ## Inventory and health
 
-- **MC-REQ-0018 — Fleet inventory.** Mission Control must track enrolled worker identities and lifecycle state.
-- **MC-REQ-0019 — Software inventory.** Mission Control must record current Vincent version and immutable installer provenance where reported.
-- **MC-REQ-0020 — Capability inventory.** Mission Control must record relevant worker capabilities, hardware/resources, and installed AI-provider support.
-- **MC-REQ-0021 — Health state.** Mission Control must represent worker health and last-contact state without treating intentional idleness as failure.
-- **MC-REQ-0022 — Version policy visibility.** Mission Control must be able to express and report fleet version/update policy without replacing Vincent's trusted update mechanism.
+- **MC-REQ-0018 — Fleet inventory.** CIC Station must track enrolled worker identities and lifecycle state.
+- **MC-REQ-0019 — Software inventory.** CIC Station must record current Vincent version and immutable installer provenance where reported.
+- **MC-REQ-0020 — Capability inventory.** CIC Station must record relevant worker capabilities, hardware/resources, and installed AI-provider support.
+- **MC-REQ-0021 — Health state.** CIC Station must represent worker health and last-contact state without treating intentional idleness as failure.
+- **MC-REQ-0022 — Version policy visibility.** CIC Station must be able to express and report fleet version/update policy without replacing Vincent's trusted update mechanism.
 
 ## Assignments, leases, and liveness
 
@@ -49,8 +49,8 @@ Requirement identifiers are permanent once merged to `main`. Superseded or withd
 
 ## Results, audit, and approvals
 
-- **MC-REQ-0031 — Structured task state.** Mission Control must represent meaningful assignment states such as queued, active, blocked, approval-required, completed, failed, expired, cancelled, and superseded.
-- **MC-REQ-0032 — Durable result references.** Mission Control must record structured results and references to durable project artifacts/commits without replacing Git as source authority.
+- **MC-REQ-0031 — Structured task state.** CIC Station must represent meaningful assignment states such as queued, active, blocked, approval-required, completed, failed, expired, cancelled, and superseded.
+- **MC-REQ-0032 — Durable result references.** CIC Station must record structured results and references to durable project artifacts/commits without replacing Git as source authority.
 - **MC-REQ-0033 — Audit history.** Important fleet-control changes must record actor, action, time, and resulting state.
 - **MC-REQ-0034 — Human approval gates.** Consequential destructive, production, credential-expansion, protected-integration, and release actions require explicit approval unless later policy deliberately changes the boundary.
 - **MC-REQ-0035 — Decision durability.** Decisions that affect continuing work must be durable and auditable rather than existing only in chat.
@@ -58,7 +58,7 @@ Requirement identifiers are permanent once merged to `main`. Superseded or withd
 
 ## AI-provider identity and credentials
 
-- **MC-REQ-0037 — Provider profile assignment.** Mission Control may assign desired AI provider plus non-secret account/organization/tenant/project context and authentication policy.
+- **MC-REQ-0037 — Provider profile assignment.** CIC Station may assign desired AI provider plus non-secret account/organization/tenant/project context and authentication policy.
 - **MC-REQ-0038 — Vincent-owned provider enrollment.** Provider-specific installation, enrollment, and local credential-health checks remain Vincent responsibilities.
 - **MC-REQ-0039 — Provider mismatch visibility.** A mismatch between intended and effective provider identity/scope must block or surface clearly rather than silently proceed.
 - **MC-REQ-0040 — No reusable AI credentials in Git.** Reusable provider credentials must never be stored in Git.
@@ -67,10 +67,10 @@ Requirement identifiers are permanent once merged to `main`. Superseded or withd
 
 ## Data, architecture, and recovery
 
-- **MC-REQ-0043 — Durable/ephemeral separation.** Git remains authoritative for durable project artifacts while high-frequency fleet state may live in the Mission Control database/service.
-- **MC-REQ-0044 — Replaceable control plane.** Loss of a Mission Control instance must not destroy source history, product intent, or completed project artifacts.
+- **MC-REQ-0043 — Durable/ephemeral separation.** Git remains authoritative for durable project artifacts while high-frequency fleet state may live in the CIC Station database/service.
+- **MC-REQ-0044 — Replaceable control plane.** Loss of a CIC Station instance must not destroy source history, product intent, or completed project artifacts.
 - **MC-REQ-0045 — Recovery reconciliation.** On control-plane restart, uncertain leases/worker state must be reconciled conservatively before dispatch resumes.
-- **MC-REQ-0046 — Multi-project support.** Mission Control must support multiple projects without allowing one project's rules to become unintended global policy.
+- **MC-REQ-0046 — Multi-project support.** CIC Station must support multiple projects without allowing one project's rules to become unintended global policy.
 - **MC-REQ-0047 — Multiple repositories per project.** Projects may reference multiple repositories with explicit modification scope.
 - **MC-REQ-0048 — Project activation state.** Projects may be active, paused, under maintenance, or archived without losing durable state.
 - **MC-REQ-0049 — Worker replacement.** Retired/replaced workers must retain historical identity for audit while replacement identities receive fresh authority.
@@ -84,9 +84,9 @@ Requirement identifiers are permanent once merged to `main`. Superseded or withd
 - **MC-REQ-0054 — Observable failure.** Failures and blocked states must expose meaningful operational context and preserved-state information.
 - **MC-REQ-0055 — Notification deduplication.** Notification adapters must avoid repeated identical alerts for unchanged state.
 - **MC-REQ-0056 — Maintenance/drain state.** Workers undergoing planned maintenance must stop receiving new assignments and preserve active work according to policy.
-- **MC-REQ-0057 — Release traceability.** Mission Control releases must identify exact source, version, relevant protocol compatibility, known limitations, and validation evidence.
+- **MC-REQ-0057 — Release traceability.** CIC Station releases must identify exact source, version, relevant protocol compatibility, known limitations, and validation evidence.
 - **MC-REQ-0058 — Release changelog.** A concise `CHANGELOG.md` must be maintained at release boundaries.
-- **MC-REQ-0059 — AGPLv3 application license.** At the owner-approved public-release gate, the reusable Mission Control application source must be released under AGPLv3 after a complete history, secret, privacy, infrastructure, and configuration audit.
+- **MC-REQ-0059 — AGPLv3 application license.** At the owner-approved public-release gate, the reusable CIC Station application source must be released under AGPLv3 after a complete history, secret, privacy, infrastructure, and configuration audit.
 - **MC-REQ-0060 — External contributions deferred.** Outside pull requests are not accepted until the owner intentionally reopens contribution policy at 1.0 or later.
 
 ## Requirement maintenance

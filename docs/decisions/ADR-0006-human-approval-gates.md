@@ -5,7 +5,7 @@
 
 ## Context
 
-Mission Control exists to remove repetitive coordination, not to eliminate human authority over high-impact actions.
+CIC Station exists to remove repetitive coordination, not to eliminate human authority over high-impact actions.
 
 ## Decision
 

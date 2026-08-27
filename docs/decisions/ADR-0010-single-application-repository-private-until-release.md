@@ -1,22 +1,22 @@
-# ADR-0010: Use one Mission Control application repository, private until release
+# ADR-0010: Use one CIC Station application repository, private until release
 
 **Status:** Accepted
 **Decision date:** 2026-08-27
 
 ## Context
 
-The earlier repository boundary assumed that `Gordonfive/mission-control` would store private operational state in Git and that reusable application code therefore required a third repository. Review found no current need for that split. Mission Control is itself a reusable web application, and its private fleet information is application data that belongs in the deployed database and protected operational systems.
+The earlier repository boundary assumed that the control-plane repository would store private operational state in Git and that reusable application code therefore required a third repository. Review found no current need for that split. CIC Station is itself a reusable web application, and its private fleet information is application data that belongs in the deployed database and protected operational systems.
 
 ## Decision
 
 Use two product repositories:
 
-- `Gordonfive/vincent` for the worker installer, operating environment, runtime, diagnostics, updates, provider adapters, and Mission Control client.
-- `Gordonfive/mission-control` for the reusable Mission Control web application, API, database schema and migrations, tests, packaging, and product/program documentation.
+- `Gordonfive/vincent` for the worker installer, operating environment, runtime, diagnostics, updates, provider adapters, and CIC Station client.
+- `Gordonfive/cic-station` for the reusable CIC Station web application, API, database schema and migrations, tests, packaging, and product/program documentation.
 
-Keep `Gordonfive/mission-control` private during development. At an explicit owner-approved public-release gate, publish this repository under AGPLv3 after a complete audit.
+Keep `Gordonfive/cic-station` private during development. At an explicit owner-approved public-release gate, publish this repository under AGPLv3 after a complete audit.
 
-Do not commit private operational data. Worker identities, inventory, enrollment and authorization state, assignments, leases, results, and audit history belong in the deployed Mission Control database and protected backups. Raw secrets and private production configuration belong in protected secret and deployment systems outside Git.
+Do not commit private operational data. Worker identities, inventory, enrollment and authorization state, assignments, leases, results, and audit history belong in the deployed CIC Station database and protected backups. Raw secrets and private production configuration belong in protected secret and deployment systems outside Git.
 
 ## Rationale
 
@@ -24,7 +24,7 @@ A third repository would add coordination and documentation overhead without pro
 
 ## Consequences
 
-- Mission Control implementation may begin in the existing private repository.
+- CIC Station implementation may begin in the existing private repository.
 - No separate application repository is required.
 - Public-safe practices apply from the start even while the repository is private.
 - Deleting files immediately before publication is insufficient because Git retains history.

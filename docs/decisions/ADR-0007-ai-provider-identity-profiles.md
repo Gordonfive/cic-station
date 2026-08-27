@@ -9,7 +9,7 @@ Vincent is intended to support Codex first and later additional AI providers/age
 
 ## Decision
 
-Mission Control may assign a worker's desired AI provider plus non-secret account/organization/tenant/project context and authentication policy. Vincent performs provider-specific installation and enrollment locally through its adapter, verifies effective non-secret identity/scope where possible, and reports enrollment/health/mismatch state.
+CIC Station may assign a worker's desired AI provider plus non-secret account/organization/tenant/project context and authentication policy. Vincent performs provider-specific installation and enrollment locally through its adapter, verifies effective non-secret identity/scope where possible, and reports enrollment/health/mismatch state.
 
 Provider mismatch must block or surface clearly rather than silently use an unintended identity.
 
@@ -17,7 +17,7 @@ Reusable AI credentials never belong in Git. Any future unattended credential de
 
 ## Rationale
 
-This keeps provider-specific authentication logic on the worker while allowing Mission Control to manage intended identity/policy in a provider-neutral way.
+This keeps provider-specific authentication logic on the worker while allowing CIC Station to manage intended identity/policy in a provider-neutral way.
 
 ## Consequences
 

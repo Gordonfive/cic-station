@@ -1,12 +1,12 @@
-# Vincent + Mission Control Program Roadmap
+# Vincent + CIC Station Program Roadmap
 
-This is the canonical cross-product roadmap. Product-specific implementation details belong in the Vincent and Mission Control product roadmaps.
+This is the canonical cross-product roadmap. Product-specific implementation details belong in the Vincent and CIC Station product roadmaps.
 
 ## Program principles
 
 - Vincent remains a useful standalone worker platform.
-- Mission Control governs managed-fleet enrollment, authorization, assignments, leases, approvals, health, and operational coordination.
-- Git preserves durable technical/project work; product/requirements/ADRs preserve intent; Mission Control restores managed-fleet operation.
+- CIC Station governs managed-fleet enrollment, authorization, assignments, leases, approvals, health, and operational coordination.
+- Git preserves durable technical/project work; product/requirements/ADRs preserve intent; CIC Station restores managed-fleet operation.
 - Workers and the control plane are replaceable; durable authoritative work must not depend on one machine or chat thread.
 - Product/release evidence is required before declaring milestones complete.
 
@@ -17,12 +17,12 @@ This is the canonical cross-product roadmap. Product-specific implementation det
 | M0 | Canonical product, requirements, ADR, roadmap, status, and governance model established in both repositories | In progress — documentation reset underway |
 | M1 | Vincent installer and standalone READY path physically proven on heterogeneous hardware; large workstation usable as persistent worker | In progress |
 | M2 | Vincent completes bounded real work from an operator-selected source, publishes verified results, maintains itself, and preserves installer/software version separation | Not complete |
-| M3 | First managed-worker Mission Control model proven with explicit enrollment, scoped authorization, inventory, bounded assignment, result reporting, and revocation | Planned |
+| M3 | First managed-worker CIC Station model proven with explicit enrollment, scoped authorization, inventory, bounded assignment, result reporting, and revocation | Planned |
 | M4 | Two-worker coordination proves lease ownership, liveness/grace behavior, stale-result protection, replacement, and recovery | Planned |
-| M5 | Self-hostable Mission Control API/database plus responsive phone-capable web UI proven | Planned |
-| M6 | Mission Control passes its public-release audit and the existing application repository is published under AGPLv3 with self-hosted packaging and a release process | Planned |
+| M5 | Self-hostable CIC Station API/database plus responsive phone-capable web UI proven | Planned |
+| M6 | CIC Station passes its public-release audit and the existing application repository is published under AGPLv3 with self-hosted packaging and a release process | Planned |
 | M7 | Multi-project and multi-agent/provider scheduling/identity policy proven with project isolation and capability matching | Planned |
-| M8 | Full destructive recovery proves workers and Mission Control can be reconstructed from durable/protected external state; 1.0 acceptance criteria satisfied | Planned |
+| M8 | Full destructive recovery proves workers and CIC Station can be reconstructed from durable/protected external state; 1.0 acceptance criteria satisfied | Planned |
 
 ## Current execution strategy
 
@@ -30,7 +30,7 @@ This is the canonical cross-product roadmap. Product-specific implementation det
 - Use the old laptop as the expendable physical installer/recovery test target for repeated clean installs and failure-path tests.
 - Do not destroy the productive workstation merely for symmetry; deliberately rebuild it later at the worker-impermanence/recovery acceptance gate.
 - Finish the Vincent documentation/installer decision reconciliation before resuming normal ISO development from a clean branch model.
-- Develop the reusable Mission Control application in `Gordonfive/mission-control`; keep operational fleet data, secrets, and private production configuration outside Git from the beginning.
+- Develop the reusable CIC Station application in `Gordonfive/cic-station`; keep operational fleet data, secrets, and private production configuration outside Git from the beginning.
 
 ## Cross-product acceptance rules
 

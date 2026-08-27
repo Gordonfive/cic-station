@@ -5,13 +5,13 @@
 
 ## Context
 
-Early coordination can use Git, but high-frequency heartbeats, leases, and live fleet state are a poor fit for commit-based storage. At the same time, Mission Control must not become the sole authority for source or product intent.
+Early coordination can use Git, but high-frequency heartbeats, leases, and live fleet state are a poor fit for commit-based storage. At the same time, CIC Station must not become the sole authority for source or product intent.
 
 ## Decision
 
-Git remains authoritative for durable project/source/product artifacts. The Mission Control service/database owns operational fleet state such as enrollment status, worker registry, heartbeats, leases, health, notification state, and operational audit where appropriate.
+Git remains authoritative for durable project/source/product artifacts. The CIC Station service/database owns operational fleet state such as enrollment status, worker registry, heartbeats, leases, health, notification state, and operational audit where appropriate.
 
-Mission Control records references/results needed for fleet coordination but does not replace project Git as source authority.
+CIC Station records references/results needed for fleet coordination but does not replace project Git as source authority.
 
 ## Rationale
 
