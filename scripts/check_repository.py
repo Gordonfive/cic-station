@@ -25,6 +25,7 @@ REQUIRED = [
 ]
 RETIRED_PATHS = [
     "MISSION_CONTROL.md",
+    "config/task.example.yaml",
     "docs/PROJECT_START_HERE.md",
     "docs/CONTINUATION_HANDOFF.md",
     "docs/PLANNED_FEATURES.md",
@@ -42,6 +43,7 @@ REQ = re.compile(r"MC-REQ-\d{4}")
 REQ_TOKEN = re.compile(r"\bMC-REQ-[A-Za-z0-9_-]+\b")
 REQ_DEFINITION = re.compile(r"(?m)^- \*\*(MC-REQ-[A-Za-z0-9_-]+)\b")
 ADR_FILE = re.compile(r"ADR-(\d{4})-[a-z0-9-]+\.md$")
+ADR_INDEX_ENTRY = re.compile(r"(?m)^- `(ADR-\d{4}-[a-z0-9-]+\.md)`")
 SEMVER = re.compile(
     r"(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)"
     r"(?:-((?:0|[1-9]\d*|\d*[A-Za-z-][0-9A-Za-z-]*)"
@@ -122,6 +124,23 @@ def main() -> int:
             seen.add(req_id)
         for req_id in sorted(duplicate_definitions):
             failures.append(f"duplicate requirement definition: {req_id}")
+
+    adr_index_path = ROOT / "docs/decisions/README.md"
+    if adr_index_path.is_file():
+        indexed_names = ADR_INDEX_ENTRY.findall(adr_index_path.read_text(encoding="utf-8"))
+        counts: dict[str, int] = {}
+        for name in indexed_names:
+            counts[name] = counts.get(name, 0) + 1
+        for name, count in sorted(counts.items()):
+            if count > 1:
+                failures.append(f"duplicate ADR index entry: {name}")
+
+        actual_names = {path.name for path in adr_numbers.values()}
+        indexed_set = set(indexed_names)
+        for name in sorted(actual_names - indexed_set):
+            failures.append(f"ADR missing from index: {name}")
+        for name in sorted(indexed_set - actual_names):
+            failures.append(f"ADR index references missing file: {name}")
 
     if failures:
         for failure in failures:
