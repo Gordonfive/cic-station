@@ -35,6 +35,12 @@ Project repositories remain authoritative for their own source, product requirem
 
 - Fresh workers begin untrusted.
 - Enrollment is explicit, authenticated, scoped, and revocable.
+- Human operators act through distinct authenticated identities with explicit least-privilege authorization and attributable audit history.
+- A self-hosted deployment must be operable with built-in local operator authentication; external identity providers may be added later but are not a baseline dependency.
+- Initial administrator establishment is explicit and one-time; CIC Station does not ship with a reusable default administrator credential.
+- Interactive sessions are revocable and expire; high-impact actions may require reauthentication according to policy.
+- Human operator identities and non-human API/service identities remain distinct and independently scoped/revocable.
+- Routine operator/API and Vincent-to-CIC-Station communication carrying real credentials or operational data is encrypted in transit.
 - Normal worker/control-plane communication is initiated outbound by Vincent; inbound worker management ports are not required for routine fleet operation.
 - CIC Station is not a remote shell. SSH and normal Linux administration remain separate.
 - Raw credentials never belong in Git.
