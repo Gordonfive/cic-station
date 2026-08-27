@@ -13,7 +13,9 @@ Outside pull requests are not accepted yet. Revisit external contribution policy
 - Resolve review conversations before merge.
 - Squash merge accepted pull requests.
 - Delete merged/superseded branches after useful work is preserved.
-- Force pushes to protected `main` are prohibited.
+- Do not force-push or delete `main`.
+
+GitHub branch-protection/ruleset enforcement is deferred while this repository remains private on the current plan. Until the public-release gate, the workflow above is a procedural project requirement. Configure enforced PR + CI protection, force-push/deletion prevention, and related repository rules when CIC Station becomes public.
 
 ## Documentation changes
 

@@ -15,7 +15,7 @@ List checks performed and evidence produced.
 ## Safety / boundaries
 
 - [ ] No raw secrets or private credentials added.
-- [ ] Public/private repository boundary preserved.
+- [ ] Source/operational-data and protected-configuration boundaries preserved.
 - [ ] No production/destructive authority expanded without explicit approval.
 - [ ] Documentation/status updated where behavior or current state changed.
 

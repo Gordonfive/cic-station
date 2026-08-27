@@ -4,7 +4,7 @@ This roadmap contains CIC Station product/release outcomes only. The cross-produ
 
 CIC Station versions independently using Semantic Versioning. Pre-1.0 development uses `0.x.y`; the first release satisfying accepted 1.0 criteria becomes `1.0.0`.
 
-## 0.1 — Product and data-model foundation
+## 0.1.0 — Product and data-model foundation
 
 - canonical product, requirements, ADR, architecture, status, and release documentation;
 - worker/enrollment/authorization/inventory/assignment/lease/result/audit data models;
@@ -13,7 +13,7 @@ CIC Station versions independently using Semantic Versioning. Pre-1.0 developmen
 - AI-provider identity-profile model;
 - protected-secret boundary definition.
 
-## 0.2 — First managed-worker proof
+## 0.2.0 — First managed-worker proof
 
 - explicit Vincent enrollment and approval;
 - scoped authorization and independent revocation;
@@ -23,7 +23,7 @@ CIC Station versions independently using Semantic Versioning. Pre-1.0 developmen
 - human approval gate round-trip;
 - AI-provider intended/effective identity mismatch reporting.
 
-## 0.3 — Leases and multi-worker coordination
+## 0.3.0 — Leases and multi-worker coordination
 
 - time-bounded assignment leases;
 - heartbeat/liveness with grace states;
@@ -33,7 +33,7 @@ CIC Station versions independently using Semantic Versioning. Pre-1.0 developmen
 - worker retirement/replacement;
 - coordinator restart/reconciliation semantics.
 
-## 0.4 — Persistent service/API/database
+## 0.4.0 — Persistent service/API/database
 
 - self-hostable application service;
 - authenticated API;
@@ -41,7 +41,7 @@ CIC Station versions independently using Semantic Versioning. Pre-1.0 developmen
 - enrollment/inventory/assignment/lease/audit operations moved from Git-backed prototype state into the service where appropriate;
 - protected secret-delivery integration only if unattended credential use is actually required.
 
-## 0.5 — Web UI and packaging
+## 0.5.0 — Web UI and packaging
 
 - responsive browser UI suitable for phone/desktop use;
 - enrollment approval, worker details, assignment state, approvals, failures, reports, and fleet policy;
@@ -49,7 +49,7 @@ CIC Station versions independently using Semantic Versioning. Pre-1.0 developmen
 - straightforward self-hosted deployment on supported Linux server/VM/VPS/container environments;
 - documented backup/recovery and upgrade procedures.
 
-## 0.6 — Public application ecosystem
+## 0.6.0 — Public application ecosystem
 
 - complete Git-history and release-content audit for privacy, secrets, infrastructure, and production configuration;
 - publish the existing reusable application repository under AGPLv3;
@@ -59,7 +59,7 @@ CIC Station versions independently using Semantic Versioning. Pre-1.0 developmen
 - dependency/license/security review;
 - no Gordonfive operational data, secrets, or private production configuration in the published source.
 
-## 0.7+ — Multi-project and multi-agent maturity
+## 0.7.0 and later — Multi-project and multi-agent maturity
 
 - multiple active projects with independent scopes/policies;
 - multiple repositories per project where required;
