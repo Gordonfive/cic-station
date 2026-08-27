@@ -1,14 +1,14 @@
-# Mission Control Documentation
+# CIC Station Documentation
 
-This directory contains the canonical Mission Control and cross-product program documentation.
+This directory contains the canonical CIC Station and cross-product program documentation.
 
 ## Canonical documents
 
-- `PRODUCT.md` — Mission Control purpose, users, goals, non-goals, and product boundaries.
+- `PRODUCT.md` — CIC Station purpose, users, goals, non-goals, and product boundaries.
 - `REQUIREMENTS.md` — stable `MC-REQ-####` functional and non-functional requirements.
 - `ARCHITECTURE.md` — control-plane architecture and Vincent integration boundary.
-- `PROGRAM_ROADMAP.md` — canonical Vincent + Mission Control cross-product roadmap.
-- `ROADMAP.md` — Mission Control product/release roadmap only.
+- `PROGRAM_ROADMAP.md` — canonical Vincent + CIC Station cross-product roadmap.
+- `ROADMAP.md` — CIC Station product/release roadmap only.
 - `STATUS.md` — current implementation, proof, and blocker state.
 - `decisions/README.md` — ADR index.
 
