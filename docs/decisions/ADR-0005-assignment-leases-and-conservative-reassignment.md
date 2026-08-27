@@ -17,5 +17,5 @@ Correctness and preservation of authoritative work matter more than immediate ma
 
 ## Consequences
 
-- Lease state belongs in operational Mission Control state rather than high-frequency Git commits.
+- Lease state belongs in operational CIC Station state rather than high-frequency Git commits.
 - Workers that cannot verify ownership must stop or checkpoint safely before publishing exclusive results.
