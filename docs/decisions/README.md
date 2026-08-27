@@ -1,6 +1,6 @@
 # Architecture Decision Records
 
-ADRs are the authoritative record for consequential Mission Control decisions.
+ADRs are the authoritative record for consequential CIC Station decisions.
 
 ## Format
 
@@ -28,5 +28,7 @@ ADR numbers are assigned only on the integration branch/PR and are never reused 
 - `ADR-0008-git-durable-project-authority-operational-database.md`
 - `ADR-0009-agplv3-public-application-license.md`
 - `ADR-0010-single-application-repository-private-until-release.md`
+- `ADR-0011-versioning-and-build-identifiers.md`
+- `ADR-0012-rename-product-to-cic-station.md`
 
 Do not maintain a second full-text decision register.
