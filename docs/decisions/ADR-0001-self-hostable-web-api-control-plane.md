@@ -5,11 +5,11 @@
 
 ## Context
 
-Mission Control must support routine fleet operation from desktop and phone without requiring a platform-specific desktop client or dependence on a Gordonfive-hosted service.
+CIC Station must support routine fleet operation from desktop and phone without requiring a platform-specific desktop client or dependence on a Gordonfive-hosted service.
 
 ## Decision
 
-Mission Control will be a self-hostable server application with a responsive browser UI, authenticated API/application service, and persistent operational database.
+CIC Station will be a self-hostable server application with a responsive browser UI, authenticated API/application service, and persistent operational database.
 
 Self-hosting is first-class. A hosted service may be evaluated later as an optional deployment model.
 
