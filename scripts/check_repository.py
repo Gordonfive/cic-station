@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Repository validation for Mission Control documentation and safety invariants."""
+"""Repository validation for CIC Station documentation and safety invariants."""
 from __future__ import annotations
 
 import pathlib
@@ -104,7 +104,7 @@ def main() -> int:
             print(f"FAIL: {failure}")
         return 1
 
-    print("Mission Control canonical document/link/requirement/ADR/credential checks: PASS")
+    print("CIC Station canonical document/link/requirement/ADR/credential checks: PASS")
     return 0
 
 
