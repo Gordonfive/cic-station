@@ -1,103 +1,76 @@
 # Mission Control and Vincent Roadmap
 
-This is the private recovery mirror of the shared Vincent / Mission Control roadmap. It exists so the project can be reconstructed from Git without access to the previous ChatGPT project.
+**Roadmap updated:** 2026-08-27T08:18:00-08:00
 
-## Repository authority
+This is the private recovery mirror and Mission Control product roadmap. Git is authoritative; Vincent remains the public worker platform.
 
-| Repository | Visibility | Authority |
+## Repository authority and product direction
+
+| Repository | Current visibility | Authority |
 |---|---|---|
-| `Gordonfive/vincent` | Public | Generic Vincent worker platform, Debian ISO, installer, bootstrap/first boot, enrollment client, worker runtime, tests, public-safe documentation, releases, preserved public legacy history |
-| `Gordonfive/mission-control` | Private | Fleet enrollment approval, authorization, inventory, roles, repository scopes, assignments, private coordination, private reports, private control-plane configuration |
-| `Gordonfive/codex-worker-platform` | Private legacy | Migration source only; scheduled for deletion after verified consolidation |
-| `Gordonfive/GitBoy` | Public legacy | Migration/provenance source only; scheduled for deletion after verified consolidation |
+| `Gordonfive/vincent` | Public | Generic Vincent worker platform, Debian ISO/installer, first boot, diagnostics, maintenance/update client, Mission Control client/protocol implementation, runtime, tests, public-safe documentation, releases |
+| `Gordonfive/mission-control` | Private today | Our private coordination/control repository and future Mission Control control-plane implementation area: enrollment approval, authorization, inventory, capabilities, roles, repository scopes, assignments, leases, approvals, reports, and control-plane design |
 
-Git is authoritative. Project DNA records intent. Chat history is disposable.
+Mission Control is planned as a **self-hostable server application with a web interface and authenticated API**. It is not planned as a desktop application and will not require users to depend exclusively on a Gordonfive-hosted service. A future hosted service may be offered as an option.
 
-## Current shared state — 2026-08-25
+If Mission Control becomes a distributable Vincent product, its reusable application source should become public/open. Gordonfive's actual fleet/deployment state, assignments, authorization information, infrastructure metadata, and other private operational material must remain in a separate private deployment/state location. Application source and deployment state are separate concerns.
 
-Vincent migration and ISO evidence currently live on non-default Vincent branches and must be inspected before consolidation:
+## Architectural boundary
 
-- accepted migration/ISO-testing source: `fc032f8df1c0abde295122a8a515e9cdcf7c7b70`
-- durable owner acceptance record: `d6fb92a6a07905dc29a1431b17d2a953abd5fbc8`
-- Workstream 2 correction code: `3a6abb330fb11faffbd638b101ed11dca47f4216`
-- Workstream 2 correction/report branch tip: `4edd5e95a403d605664402a7b1dc2d5c4f53b71b`
-- Workstream 2 branch: `workstream/ws2-iso-corrections`
+Vincent must remain independently functional. It can boot, diagnose itself, maintain Debian and its own software, update from its trusted public upstream, and remain healthy without Mission Control.
 
-The first Vincent ISO built from the accepted source was rejected by the obsolete-name gate because stale generated GitBoy package metadata remained embedded. The rejected image must not be flashed. The correction removes that material, fixes script executable bits, and strengthens the ISO validation workflow.
+Mission Control is the managed-fleet control plane. Conceptually, Vincent defines what a worker **can** do; Mission Control determines what an enrolled worker **may** do, what it **should** do, and records what it **is doing**.
 
-Complete native legacy histories were already copied into Vincent under `legacy/*`, but final consolidation still requires checking all current legacy refs and moving any private control-plane material that belongs here rather than in the public repository.
+A fresh Vincent installation begins untrusted. Enrollment into Mission Control is explicit, scoped, and revocable. Normal Vincent-to-Mission-Control communication should be outbound from the worker over an authenticated protocol so ordinary deployments do not require inbound worker management ports.
 
-## Primary Workstream A — Consolidate and retire legacy repositories
+Mission Control is not a general-purpose remote shell and does not replace SSH or standard Linux administration.
 
-This is the first primary task.
+## Current work
 
-1. Fetch all refs from Vincent, Mission Control, `codex-worker-platform`, and `GitBoy`.
-2. Inventory every branch, tag, report, Project DNA/architecture document, workflow, configuration, task/coordination record, and unresolved change.
-3. Re-verify native Git history preservation instead of assuming file-level copies are sufficient.
-4. Move/merge generic worker implementation and public-safe history into Vincent.
-5. Move/merge private control-plane information into Mission Control, including:
-   - enrollment approval records and policy;
-   - worker/fleet inventory and roles;
-   - repository/project scopes;
-   - assignment/claim coordination records;
-   - private infrastructure metadata that is appropriate for Git;
-   - private fleet reports and recovery state.
-6. Never commit raw secrets, passwords, tokens, private keys, authentication caches, reusable enrollment credentials, or production data. Store only safe configuration/references needed to reconstruct authority.
-7. Reconcile duplicate architecture, authority, security, Project DNA, and roadmap material so the new repositories do not drift into contradictory sources of truth.
-8. Remove active dependencies on legacy repository URLs/names and obsolete GitBoy identifiers, preserving them only where historical provenance requires them.
-9. Run tests, secret scans, public/private-boundary scans, obsolete-name scans, link/reference checks, and source/destination ref comparisons.
-10. Prove a clean ChatGPT/Codex environment connected only to the two new repositories can recover the system and continue work.
-11. Record exact consolidation commits in both repositories.
-12. **Owner directive dated 2026-08-25:** once preservation/consolidation is proven, delete `Gordonfive/codex-worker-platform` and `Gordonfive/GitBoy`. This supersedes the older planning dependency that postponed deletion until ISO acceptance. Never delete them before preservation proof completes.
-13. After deletion, verify no active recovery, bootstrap, workflow, documentation, or coordination path requires either old repository.
+The immediate Vincent priority remains installer/worker proof. Mission Control implementation must not unnecessarily delay a stable generic Vincent worker. Early coordination may remain Git-backed while workflows and data structures are proven.
 
-Acceptance: Vincent and Mission Control alone contain all required code, history, intent, public/private state, reports, and recovery instructions.
+The current private repository also remains responsible for preserving project recovery and coordination state during consolidation of the historical worker-platform repositories.
 
-## Primary Workstream B — Resume Vincent ISO creation and testing
+## Mission Control product track
 
-This is the second primary task and may run in a separate ChatGPT thread.
-
-Mission Control's role is to preserve the authority boundary around the public worker:
-
-1. A fresh Vincent installation creates its own local identity/request.
-2. It has no private/project authority before explicit approval.
-3. Enrollment/authorization must be scoped and revocable.
-4. Public Vincent must not contain Mission Control inventory, authorization state, private assignments, credentials, or reusable fleet secrets.
-5. ISO validation and physical-install work must not require embedding Mission Control secrets into the image.
-
-Vincent ISO recovery state:
-
-- accepted source `fc032f8df1c0abde295122a8a515e9cdcf7c7b70` produced a rejected ISO because of obsolete GitBoy metadata;
-- rejected ISO SHA-256: `bcebd5fed3c82f86c7259b8dd71297e99057f630698c1742e4461265b78842a2`;
-- correction code: `3a6abb330fb11faffbd638b101ed11dca47f4216`;
-- correction/report tip: `4edd5e95a403d605664402a7b1dc2d5c4f53b71b`;
-- no USB had been identified or flashed at handoff time;
-- no release or production/project authority had been granted.
-
-The replacement image must be built from one exact reviewed/authorized source commit and must pass repository tests, Debian source verification, payload inspection, manifest/checksum verification, embedded-commit verification, credential/identity scans, and active obsolete-name scanning before flashing is considered.
-
-Physical testing then requires exact target-device identification and authorization, fresh whole-disk guided-LVM install, persistent networking, `vincent-worker-NNNNNN`, local login, SSH, Git, GitHub CLI, Docker, DDEV, Codex, Vincent, local identity generation, scoped enrollment/revocation, one harmless real task, and a second clean install for reproducibility.
+1. **Prove the model with Git-backed coordination.** Define durable structures for worker identity, capabilities, assignments, claims/leases, results, and authorization without prematurely building a server.
+2. **Enrollment and trust.** Define worker-generated identity, enrollment request, operator approval, scoped authorization, revocation, and credential lifecycle.
+3. **Inventory and capabilities.** Record worker identity, Vincent version, installer provenance, hardware/resources, installed AI agents/providers, health, and last contact.
+4. **Assignments and leases.** Mission Control creates bounded assignments; workers accept time-bounded leases, renew active work, and allow expired/abandoned work to become eligible for reassignment without stale results superseding newer leases.
+5. **Authorization.** Associate workers/roles/assignments with least-privileged repository and project scopes rather than distributing broad credentials.
+6. **Results and audit.** Receive structured state transitions and outcomes such as assignment accepted, work started, blocked, validation passed/failed, commit produced, approval requested, completed, or lease expired.
+7. **Human approval gates.** Provide explicit approval for destructive operations, production actions, credential expansion, protected merges, releases, and other sensitive operations.
+8. **Fleet policy.** Represent minimum Vincent versions, update channels, staged/canary adoption, maintenance windows, and temporary pins without replacing Vincent's own trusted-upstream update mechanism.
+9. **Service/API/database.** Once the Git-backed workflow is proven, implement the persistent Mission Control service with authenticated API and database.
+10. **Web interface.** Implement a responsive browser UI for enrollment, fleet status, worker details, assignments, approvals, failures, and reports. Phone-first operation remains a milestone.
+11. **Self-hosted packaging.** Support straightforward deployment on Linux servers, VMs/VPSs and, where appropriate, containers/NAS environments.
+12. **Public product separation.** Before public distribution, move reusable Mission Control application source into a public-safe codebase/repository boundary while keeping Gordonfive deployment state private.
+13. **Optional hosted service.** Evaluate a managed Mission Control offering only after self-hosting is established as a first-class supported model.
+14. **Multi-agent scheduling.** As Vincent gains Codex/Gemini/Copilot/Ollama/custom-agent adapters, Mission Control may select appropriate worker/agent combinations from reported capabilities and assignment requirements.
 
 ## Product milestones
 
 | Milestone | Outcome | Status |
 |---|---|---|
 | M0 | Architecture and Project DNA accepted | Complete |
-| M1 | One disposable Vincent worker completes a bounded task | In progress |
+| M1 | One disposable generic Vincent worker completes a bounded task | In progress |
 | M2 | Worker recovery proven | Not started |
 | M3 | Universal installer proven | Prototype / in progress |
-| M4 | Two-worker coordination proven | Not started |
-| M5 | Phone-first control proven | Not started |
-| M6 | Mission Control proven | Not started |
+| M4 | Two-worker Git coordination and assignment leasing proven | Not started |
+| M5 | Phone-first Mission Control control proven | Not started |
+| M6 | Self-hostable Mission Control service/API/database proven | Planned |
 | M7 | Multi-project operation proven | Not started |
 | M8 | Full operation recovery proven | Not started |
 
 ## Permanent principles
 
-- Git restores work; Project DNA restores intent; Mission Control restores operation.
-- ChatGPT selects priorities and worker assignment; Mission Control dispatches/records; Vincent workers perform bounded work and report.
-- Mission Control never replaces human judgment.
+- Git restores durable technical/project work; Project DNA restores intent; Mission Control restores managed-fleet operational state.
+- Vincent workers perform bounded work; Mission Control authorizes, dispatches/leases, observes, and records managed-fleet work.
+- Vincent does not depend on Mission Control for basic health, diagnostics, maintenance, or trusted-upstream software updates.
+- Mission Control never replaces human judgment for high-impact approval gates.
 - Workers are replaceable and least-privileged.
-- Public and private authority boundaries must remain explicit.
+- Public application source and private fleet/deployment state must remain explicitly separated.
 - No raw secret belongs in Git.
+- Mission Control should use standard authenticated network protocols and avoid unnecessary inbound worker exposure.
+- Mission Control is a control plane, not a generic remote-administration shell.
 - Durable Git evidence and explicit owner decisions override stale chat summaries.
