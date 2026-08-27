@@ -47,7 +47,7 @@ Private operational data belongs in the deployed CIC Station database, protected
 
 - `PRODUCT.md` defines intent and boundaries.
 - `REQUIREMENTS.md` defines stable `MC-REQ-####` requirements.
-- `ARCHITECTURE.md` and `docs/architecture/` explain implementation design.
+- `ARCHITECTURE.md` explains implementation design.
 - `docs/decisions/ADR-*.md` record consequential decisions.
 - `PROGRAM_ROADMAP.md` owns cross-product Vincent + CIC Station milestones.
 - `ROADMAP.md` owns CIC Station product/release outcomes only.
