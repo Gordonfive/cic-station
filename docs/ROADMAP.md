@@ -8,25 +8,28 @@ CIC Station versions independently using Semantic Versioning. Pre-1.0 developmen
 
 - canonical product, requirements, ADR, architecture, status, and release documentation;
 - worker/enrollment/authorization/inventory/assignment/lease/result/audit data models;
-- authenticated outbound worker protocol definition;
+- operator/actor identity, authorization, session, bootstrap, and recovery model;
+- authenticated encrypted outbound worker protocol definition;
+- encrypted operator/API transport boundary;
 - explicit durable/ephemeral data authority model;
 - AI-provider identity-profile model;
 - protected-secret boundary definition.
 
 ## 0.2.0 — First managed-worker proof
 
-- explicit Vincent enrollment and approval;
+- explicit Vincent enrollment and approval by an authenticated authorized operator;
 - scoped authorization and independent revocation;
 - worker inventory, version/provenance, capabilities, and health;
 - bounded assignment and structured result reporting;
 - conservative Git-backed coordination where useful for the first proof;
-- human approval gate round-trip;
+- human approval gate round-trip with attributable operator audit;
 - AI-provider intended/effective identity mismatch reporting.
 
 ## 0.3.0 — Leases and multi-worker coordination
 
 - time-bounded assignment leases;
 - heartbeat/liveness with grace states;
+- explicit lease clock-authority/skew/restart semantics;
 - stale-result protection;
 - explicit assignment precedence and capability matching;
 - second-worker coordination;
@@ -36,7 +39,7 @@ CIC Station versions independently using Semantic Versioning. Pre-1.0 developmen
 ## 0.4.0 — Persistent service/API/database
 
 - self-hostable application service;
-- authenticated API;
+- authenticated authorized API with separate human/service identities;
 - persistent operational database;
 - enrollment/inventory/assignment/lease/audit operations moved from Git-backed prototype state into the service where appropriate;
 - protected secret-delivery integration only if unattended credential use is actually required.
@@ -44,10 +47,11 @@ CIC Station versions independently using Semantic Versioning. Pre-1.0 developmen
 ## 0.5.0 — Web UI and packaging
 
 - responsive browser UI suitable for phone/desktop use;
+- operator login/session/revocation workflows;
 - enrollment approval, worker details, assignment state, approvals, failures, reports, and fleet policy;
 - notification routing/deduplication;
-- straightforward self-hosted deployment on supported Linux server/VM/VPS/container environments;
-- documented backup/recovery and upgrade procedures.
+- straightforward self-hosted deployment on supported Linux server/VM/VPS/container environments with documented TLS termination/trust boundaries;
+- documented backup/recovery and upgrade procedures, including operator-authentication recovery.
 
 ## 0.6.0 — Public application ecosystem
 
@@ -72,7 +76,9 @@ CIC Station versions independently using Semantic Versioning. Pre-1.0 developmen
 CIC Station 1.0 must be operationally trustworthy rather than merely feature-rich. At minimum it must prove:
 
 - self-hosted API/database/web UI;
-- explicit enrollment, least-privileged authorization, revocation, and audit;
+- distinct authenticated operators, least-privileged authorization, secure session lifecycle, first-admin bootstrap, and administrative recovery;
+- encrypted operator/API and worker/control-plane transport;
+- explicit enrollment, least-privileged worker authorization, revocation, and audit;
 - multiple workers and projects;
 - correct assignment/lease/reassignment semantics;
 - human approval gates;
