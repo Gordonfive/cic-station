@@ -20,7 +20,7 @@ This is the canonical cross-product roadmap. Product-specific implementation det
 | M3 | First managed-worker Mission Control model proven with explicit enrollment, scoped authorization, inventory, bounded assignment, result reporting, and revocation | Planned |
 | M4 | Two-worker coordination proves lease ownership, liveness/grace behavior, stale-result protection, replacement, and recovery | Planned |
 | M5 | Self-hostable Mission Control API/database plus responsive phone-capable web UI proven | Planned |
-| M6 | Reusable Mission Control application lives in a separate public AGPLv3 repository with self-hosted packaging and release process | Planned |
+| M6 | Mission Control passes its public-release audit and the existing application repository is published under AGPLv3 with self-hosted packaging and a release process | Planned |
 | M7 | Multi-project and multi-agent/provider scheduling/identity policy proven with project isolation and capability matching | Planned |
 | M8 | Full destructive recovery proves workers and Mission Control can be reconstructed from durable/protected external state; 1.0 acceptance criteria satisfied | Planned |
 
@@ -30,7 +30,7 @@ This is the canonical cross-product roadmap. Product-specific implementation det
 - Use the old laptop as the expendable physical installer/recovery test target for repeated clean installs and failure-path tests.
 - Do not destroy the productive workstation merely for symmetry; deliberately rebuild it later at the worker-impermanence/recovery acceptance gate.
 - Finish the Vincent documentation/installer decision reconciliation before resuming normal ISO development from a clean branch model.
-- Begin reusable Mission Control application coding only after the public AGPL application repository boundary is created.
+- Develop the reusable Mission Control application in `Gordonfive/mission-control`; keep operational fleet data, secrets, and private production configuration outside Git from the beginning.
 
 ## Cross-product acceptance rules
 
