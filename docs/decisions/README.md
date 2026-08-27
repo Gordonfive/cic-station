@@ -1,0 +1,31 @@
+# Architecture Decision Records
+
+ADRs are the authoritative record for consequential Mission Control decisions.
+
+## Format
+
+Each ADR uses an immutable `ADR-####-short-title.md` filename and records:
+
+- status;
+- decision date;
+- context;
+- decision;
+- rationale;
+- consequences;
+- supersedes / superseded-by when applicable.
+
+ADR numbers are assigned only on the integration branch/PR and are never reused after merge to `main`.
+
+## Current ADRs
+
+- `ADR-0001-self-hostable-web-api-control-plane.md`
+- `ADR-0002-public-application-private-deployment-split.md`
+- `ADR-0003-outbound-authenticated-worker-protocol.md`
+- `ADR-0004-explicit-enrollment-and-revocation.md`
+- `ADR-0005-assignment-leases-and-conservative-reassignment.md`
+- `ADR-0006-human-approval-gates.md`
+- `ADR-0007-ai-provider-identity-profiles.md`
+- `ADR-0008-git-durable-project-authority-operational-database.md`
+- `ADR-0009-agplv3-public-application-license.md`
+
+Do not maintain a second full-text decision register.

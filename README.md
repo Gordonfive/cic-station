@@ -1,38 +1,36 @@
 # Mission Control
 
-> **Project recovery:** a fresh ChatGPT/Codex project should begin with `docs/PROJECT_START_HERE.md`, then read `docs/ROADMAP.md` and `docs/CONTINUATION_HANDOFF.md` in this repository and in `Gordonfive/vincent`.
+Mission Control is the private program and fleet-control repository for Vincent.
 
-Mission Control is the private control plane for the owner's Vincent worker fleet.
+The long-term Mission Control product is a self-hostable server application with a responsive web UI and authenticated API for enrollment, authorization, worker inventory, assignments, leases, approvals, health, results, and audit history.
 
-Vincent builds and operates generic workers. Mission Control enrolls, authorizes, assigns, observes, suspends, and retires those workers. Individual project repositories remain authoritative for their own Product DNA, source, commands, tests, tasks, and reports.
-
-## Authority
-
-- The owner controls mission, security, production access, and major architecture.
-- ChatGPT provides product direction and bounded assignments.
-- Mission Control dispatches and tracks work.
-- Vincent workers implement, test, report, and stop.
-- Git is the durable technical authority.
+Vincent remains independently functional for installation, boot, diagnostics, maintenance, updates, and standalone work. Mission Control applies only after a worker is explicitly enrolled into a managed fleet.
 
 ## Repository boundary
 
-This repository owns:
+This private repository currently owns:
 
-- approved worker inventory and public identity fingerprints;
-- worker roles, capabilities, resource limits, and repository scopes;
-- project registrations;
-- durable task assignments and fleet-level reports;
-- enrollment, suspension, revocation, and recovery policy;
+- the canonical Vincent + Mission Control program roadmap;
+- Mission Control product planning, requirements, architecture, and ADRs;
+- Gordonfive-specific fleet/deployment planning and operational state;
+- private enrollment, authorization, assignment, policy, inventory, and recovery design;
 - private infrastructure references that do not belong in public Vincent.
 
-Raw secrets, private keys, passwords, tokens, authentication caches, reusable enrollment credentials, and production data must not be committed. Store only safe public keys, fingerprints, credential identifiers, and references to separately protected secrets.
+When reusable Mission Control application coding begins, that reusable AGPLv3 application source will move into a separate public repository from the start. Gordonfive-specific fleet/deployment state will remain private here or in another private operational repository.
 
-## Canonical task flow
+Raw secrets, private keys, passwords, tokens, authentication caches, reusable enrollment credentials, and production data must never be committed.
 
-`pending → claimed → completed | failed`
+## Documentation
 
-Workers must use isolated workspaces, surface Git conflicts, preserve unexpected dirty work, publish verified results, and stop at the task boundary.
+Start with:
 
-## Current project reset
+1. `docs/README.md`
+2. `docs/PRODUCT.md`
+3. `docs/REQUIREMENTS.md`
+4. `docs/ARCHITECTURE.md`
+5. `docs/PROGRAM_ROADMAP.md`
+6. `docs/ROADMAP.md`
+7. `docs/STATUS.md`
+8. `docs/decisions/README.md`
 
-The owner is replacing the current ChatGPT project with a clean one. The durable roadmap and continuation state are stored in `docs/`. The two active priorities are: complete consolidation into Vincent/Mission Control and then delete the legacy repositories after preservation proof; and resume corrected Vincent ISO creation/testing. See `docs/ROADMAP.md`.
+Active work and unscheduled feature ideas belong in GitHub issues; implementation/review state belongs in pull requests.
