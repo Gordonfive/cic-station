@@ -89,6 +89,17 @@ Requirement identifiers are permanent once merged to `main`. Superseded or withd
 - **MC-REQ-0059 — AGPLv3 application license.** At the owner-approved public-release gate, the reusable CIC Station application source must be released under AGPLv3 after a complete history, secret, privacy, infrastructure, and configuration audit.
 - **MC-REQ-0060 — External contributions deferred.** Outside pull requests are not accepted until the owner intentionally reopens contribution policy at 1.0 or later.
 
+## Operator identity, authentication, and transport security
+
+- **MC-REQ-0061 — Distinct operator identity.** Human fleet-control actions must execute under a distinct attributable operator identity rather than an anonymous or shared default administrator identity.
+- **MC-REQ-0062 — Self-hostable operator authentication.** CIC Station must support secure local operator authentication without requiring an external identity provider so a self-hosted deployment remains independently operable.
+- **MC-REQ-0063 — Operator authorization.** Authentication alone must not grant unrestricted administration; operator permissions must be explicitly authorized and enforce least privilege for protected fleet-control actions.
+- **MC-REQ-0064 — First-administrator bootstrap.** Initial administrator creation must use an explicit one-time bootstrap path that does not ship or retain a reusable default administrative credential and becomes unavailable or appropriately restricted after successful establishment.
+- **MC-REQ-0065 — Session lifecycle security.** Interactive operator sessions must support secure server-side session state, expiration, explicit logout/revocation, and reauthentication for high-impact actions when policy requires it.
+- **MC-REQ-0066 — Human/service identity separation.** Non-human API or service identities must be distinct from human operator identities, independently scoped, attributable, and revocable.
+- **MC-REQ-0067 — Operator-authentication recovery.** CIC Station must provide a documented self-hosted administrative recovery path for loss of operator-authentication state without silently restoring old credentials or bypassing continuing audit/accountability requirements.
+- **MC-REQ-0068 — Encrypted transport.** Operator browser/API traffic and routine Vincent-to-CIC-Station communication carrying credentials, authorization state, assignments, results, or operational data must use TLS or equivalent authenticated encryption outside explicitly local non-production development that carries no real credentials or operational data.
+
 ## Requirement maintenance
 
 New requirements receive the next unused `MC-REQ-####` identifier through normal pull-request review. Requirements are implementation-neutral statements of what must be true; implementation choices belong in architecture documents and ADRs.
