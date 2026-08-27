@@ -51,12 +51,13 @@ Mission Control versions independently using Semantic Versioning. Pre-1.0 develo
 
 ## 0.6 — Public application ecosystem
 
-- reusable application source in separate public AGPLv3 repository;
+- complete Git-history and release-content audit for privacy, secrets, infrastructure, and production configuration;
+- publish the existing reusable application repository under AGPLv3;
 - public-safe configuration examples and schemas;
 - release tags/GitHub Releases and `CHANGELOG.md`;
 - package/container distribution as appropriate;
 - dependency/license/security review;
-- no Gordonfive fleet/deployment state in public application source.
+- no Gordonfive operational data, secrets, or private production configuration in the published source.
 
 ## 0.7+ — Multi-project and multi-agent maturity
 

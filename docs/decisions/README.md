@@ -19,7 +19,7 @@ ADR numbers are assigned only on the integration branch/PR and are never reused 
 ## Current ADRs
 
 - `ADR-0001-self-hostable-web-api-control-plane.md`
-- `ADR-0002-public-application-private-deployment-split.md`
+- `ADR-0002-public-application-private-deployment-split.md` — superseded by ADR-0010
 - `ADR-0003-outbound-authenticated-worker-protocol.md`
 - `ADR-0004-explicit-enrollment-and-revocation.md`
 - `ADR-0005-assignment-leases-and-conservative-reassignment.md`
@@ -27,5 +27,6 @@ ADR numbers are assigned only on the integration branch/PR and are never reused 
 - `ADR-0007-ai-provider-identity-profiles.md`
 - `ADR-0008-git-durable-project-authority-operational-database.md`
 - `ADR-0009-agplv3-public-application-license.md`
+- `ADR-0010-single-application-repository-private-until-release.md`
 
 Do not maintain a second full-text decision register.

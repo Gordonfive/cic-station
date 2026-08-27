@@ -10,7 +10,7 @@ Mission Control is designed as a self-hostable server application with a respons
 
 ## Users
 
-Primary users are operators who manage one or more Vincent workers and software projects. The initial deployment is Gordonfive's own fleet; the reusable application is intended to become a public AGPLv3 product when reusable application coding begins.
+Primary users are operators who manage one or more Vincent workers and software projects. The initial deployment is Gordonfive's own fleet. The repository remains private during development and is intended to become a public AGPLv3 product at an explicit owner-approved release gate.
 
 ## Product boundary
 
@@ -47,11 +47,11 @@ Mission Control may assign the desired AI provider and non-secret identity conte
 
 If unattended provider enrollment is later required, Mission Control must use a separately protected secret-delivery mechanism with unique, scoped, rotatable, revocable credentials. Git is never the secret transport.
 
-## Public application and private deployment separation
+## Application source and operational-data separation
 
-The current `Gordonfive/mission-control` repository is private because it contains Gordonfive-specific program planning and may contain private fleet/deployment state.
+`Gordonfive/mission-control` is the reusable application repository. It remains private during development and may become the public AGPLv3 source repository at an explicit release gate.
 
-When reusable Mission Control application coding begins, the reusable application source will be established in a separate public AGPLv3 repository from the start. Private fleet state, assignments, authorization records, infrastructure metadata, and secrets/references remain outside that public source repository.
+Private worker inventory, fleet state, assignments, authorization records, results, and audit history belong in the deployed database and protected backups rather than Git. Secrets and private production configuration remain in protected deployment and secret systems. Publication requires a complete repository-history and release-content audit.
 
 ## Non-goals
 

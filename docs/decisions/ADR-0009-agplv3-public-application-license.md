@@ -11,7 +11,7 @@ Mission Control is planned as a self-hostable server application. The owner want
 
 The reusable public Mission Control application source will use the GNU Affero General Public License v3.0 (AGPLv3).
 
-The current private program/deployment repository is not itself the public reusable application source and does not need to become public merely to carry planning/state.
+`Gordonfive/mission-control` remains private during development and becomes the public reusable application source only at an explicit owner-approved release gate.
 
 ## Rationale
 
@@ -19,6 +19,7 @@ AGPLv3 extends strong copyleft obligations to modified versions offered over a n
 
 ## Consequences
 
-- The future public application repository must include the canonical AGPLv3 license and compatible dependency choices.
-- Reusable application coding begins only after that public repository boundary exists.
-- Private Gordonfive fleet/deployment state remains separate and is not made public by the application license.
+- At public release, this repository must include the canonical AGPLv3 license and compatible dependency choices.
+- Reusable application coding may proceed while the repository is private.
+- Private Gordonfive operational data remains in the deployed database and protected systems and is not made public by the application license.
+- Publication requires a complete Git-history and release-content audit.

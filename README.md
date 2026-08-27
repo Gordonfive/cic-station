@@ -1,6 +1,6 @@
 # Mission Control
 
-Mission Control is the private program and fleet-control repository for Vincent.
+Mission Control is the reusable fleet-control application for Vincent. The repository remains private during development and is intended to become public under AGPLv3 at an explicit release gate.
 
 The long-term Mission Control product is a self-hostable server application with a responsive web UI and authenticated API for enrollment, authorization, worker inventory, assignments, leases, approvals, health, results, and audit history.
 
@@ -8,15 +8,14 @@ Vincent remains independently functional for installation, boot, diagnostics, ma
 
 ## Repository boundary
 
-This private repository currently owns:
+This repository owns:
 
+- the reusable Mission Control web application, API, database schema/migrations, tests, and packaging;
 - the canonical Vincent + Mission Control program roadmap;
 - Mission Control product planning, requirements, architecture, and ADRs;
-- Gordonfive-specific fleet/deployment planning and operational state;
-- private enrollment, authorization, assignment, policy, inventory, and recovery design;
-- private infrastructure references that do not belong in public Vincent.
+- safe deployment templates and operational documentation.
 
-When reusable Mission Control application coding begins, that reusable AGPLv3 application source will move into a separate public repository from the start. Gordonfive-specific fleet/deployment state will remain private here or in another private operational repository.
+Gordonfive-specific worker inventory, enrollment and authorization state, assignments, results, audit records, and other operational data belong in the deployed Mission Control database and protected backups. Production secrets and private deployment configuration remain outside Git. Before public release, the entire Git history and release contents must pass a privacy, secret, infrastructure, and configuration audit.
 
 Raw secrets, private keys, passwords, tokens, authentication caches, reusable enrollment credentials, and production data must never be committed.
 
