@@ -65,8 +65,8 @@ The Mission Control service is replaceable. Recovery should reconstruct durable 
 
 Loss of Mission Control must not destroy project source, product intent, completed work, or the ability to rebuild workers.
 
-## Public application split
+## Repository and operational-data boundary
 
-The current private repository contains program planning and private operational concerns. When reusable application coding begins, reusable Mission Control source moves into a separate public AGPLv3 repository before substantial implementation accumulates here.
+`Gordonfive/mission-control` contains the reusable application code, schemas, safe examples, tests, packaging, and product documentation. It remains private during development and may become the public AGPLv3 source repository at an explicit owner-approved release gate.
 
-The public application repository will contain application code, schemas, safe examples, tests, packaging, and public documentation. Private Gordonfive fleet/deployment data remains outside it.
+Gordonfive fleet data is application data: worker identities, enrollment and authorization state, assignments, results, leases, and audit history belong in the deployed operational database and protected backups. Raw secrets and private production configuration remain outside Git. Publication requires an audit of the complete Git history and proposed release contents.
