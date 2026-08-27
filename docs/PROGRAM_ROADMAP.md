@@ -14,7 +14,7 @@ This is the canonical cross-product roadmap. Product-specific implementation det
 
 | Milestone | Outcome | Current state |
 |---|---|---|
-| M0 | Canonical product, requirements, ADR, roadmap, status, and governance model established in both repositories | In progress — documentation reset underway |
+| M0 | Canonical product, requirements, ADR, roadmap, status, and governance model established in both repositories | Complete |
 | M1 | Vincent installer and standalone READY path physically proven on heterogeneous hardware; large workstation usable as persistent worker | In progress |
 | M2 | Vincent completes bounded real work from an operator-selected source, publishes verified results, maintains itself, and preserves installer/software version separation | Not complete |
 | M3 | First managed-worker CIC Station model proven with explicit enrollment, scoped authorization, inventory, bounded assignment, result reporting, and revocation | Planned |
@@ -26,11 +26,11 @@ This is the canonical cross-product roadmap. Product-specific implementation det
 
 ## Current execution strategy
 
+- Complete Vincent post-consolidation QA, then build and physically verify Installer `0.1.0` build `0022` from the exact accepted `main` source.
 - Keep the large workstation online as the first useful persistent Vincent worker and use it for real development work when practical.
 - Use the old laptop as the expendable physical installer/recovery test target for repeated clean installs and failure-path tests.
 - Do not destroy the productive workstation merely for symmetry; deliberately rebuild it later at the worker-impermanence/recovery acceptance gate.
-- Finish the Vincent documentation/installer decision reconciliation before resuming normal ISO development from a clean branch model.
-- Develop the reusable CIC Station application in `Gordonfive/cic-station`; keep operational fleet data, secrets, and private production configuration outside Git from the beginning.
+- Begin CIC Station `0.1.0` application/data-model work in `Gordonfive/cic-station` while preserving the documented operational-data and secret boundaries.
 
 ## Cross-product acceptance rules
 
