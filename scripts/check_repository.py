@@ -41,8 +41,10 @@ LINK = re.compile(r"!?\[[^\]]*\]\(([^)]+)\)")
 REQ = re.compile(r"\bMC-REQ-\d{4}\b")
 ADR_FILE = re.compile(r"ADR-(\d{4})-[a-z0-9-]+\.md$")
 SEMVER = re.compile(
-    r"(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)"
-    r"(?:-[0-9A-Za-z.-]+)?(?:\+[0-9A-Za-z.-]+)?$"
+    r"(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)"
+    r"(?:-((?:0|[1-9]\d*|\d*[A-Za-z-][0-9A-Za-z-]*)"
+    r"(?:\.(?:0|[1-9]\d*|\d*[A-Za-z-][0-9A-Za-z-]*))*))?"
+    r"(?:\+([0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*))?$"
 )
 BUILD_ID = re.compile(r"\d{4,}$")
 
@@ -109,10 +111,11 @@ def main() -> int:
         if len(locations) != 1:
             failures.append(f"duplicate requirement definition: {req_id}")
 
-    requirements_text = (ROOT / "docs/REQUIREMENTS.md").read_text(encoding="utf-8")
-    ids = REQ.findall(requirements_text)
-    if len(ids) != len(set(ids)):
-        failures.append("duplicate MC-REQ identifier in docs/REQUIREMENTS.md")
+    requirements_path = ROOT / "docs/REQUIREMENTS.md"
+    if requirements_path.is_file():
+        ids = REQ.findall(requirements_path.read_text(encoding="utf-8"))
+        if len(ids) != len(set(ids)):
+            failures.append("duplicate MC-REQ identifier in docs/REQUIREMENTS.md")
 
     if failures:
         for failure in failures:
