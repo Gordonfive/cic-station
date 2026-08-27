@@ -2,22 +2,24 @@
 
 ## Mission
 
-Restore and coordinate a reproducible software-development operation while preserving human judgment, project intent, and Git authority.
+Coordinate a reproducible software-development worker fleet while preserving human judgment, project authority, and Git-based provenance.
 
-Mission Control does not replace developers and does not autonomously choose product direction. It reduces repetitive coordination so the owner can concentrate on decisions.
+Mission Control does not choose product direction. It reduces repetitive fleet coordination so the owner can concentrate on decisions, risk, and acceptance.
 
 ## Roles
 
 - **Owner:** final mission, security, production, enrollment, and architecture authority.
-- **ChatGPT:** product direction, planning, review, and worker assignment.
-- **Mission Control:** durable dispatch, claiming, state tracking, and fleet reporting.
+- **ChatGPT:** planning, review, and bounded task direction when authorized.
+- **Mission Control:** private enrollment, authorization, dispatch, state tracking, and fleet reporting.
 - **Vincent worker:** bounded implementation, validation, publication, reporting, and stop.
-- **Project repository:** authoritative Product DNA, source, rules, tests, and work history.
+- **Project repository:** authoritative source, requirements, project rules, tests, and work history.
 
 ## Recovery principle
 
-Git restores the work. Project DNA restores the intent. Mission Control restores the operation.
+Git restores durable work and policy. Project documentation restores intent. Mission Control restores private fleet coordination.
 
 ## Initial coordination model
 
-Use simple Git-backed polling and machine-readable task records. Assignments require explicit ownership. Workers operate in isolated workspaces and publish commits and reports. Failures remain visible and recoverable.
+Prefer simple Git-backed task records and explicit ownership before building a dedicated distributed service. Workers operate in isolated workspaces, publish commits and reports, surface conflicts, and stop at assignment boundaries.
+
+A fresh Vincent worker is operational without Mission Control and connects to private control sources only after explicit operator configuration and authorization.
