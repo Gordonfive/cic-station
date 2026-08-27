@@ -5,11 +5,11 @@
 
 ## Context
 
-The current repository contains private Gordonfive program/deployment concerns, while the reusable Mission Control application is intended to become a public open-source product.
+The current repository contains private Gordonfive program/deployment concerns, while the reusable CIC Station application is intended to become a public open-source product.
 
 ## Decision
 
-When reusable Mission Control application coding begins, create a separate public application repository immediately. Keep Gordonfive fleet state, assignments, authorization records, infrastructure metadata, and private deployment configuration out of that public source repository.
+When reusable CIC Station application coding begins, create a separate public application repository immediately. Keep Gordonfive fleet state, assignments, authorization records, infrastructure metadata, and private deployment configuration out of that public source repository.
 
 This decision was superseded after confirming that no current Git content requires a third repository and that future private fleet information is application data belonging in the deployed database and protected systems.
 
