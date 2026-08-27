@@ -5,13 +5,13 @@
 
 ## Context
 
-Workers may sit behind NAT and ordinary firewalls. Mission Control needs bounded fleet operations, not arbitrary host administration.
+Workers may sit behind NAT and ordinary firewalls. CIC Station needs bounded fleet operations, not arbitrary host administration.
 
 ## Decision
 
-Routine Vincent-to-Mission-Control communication will be initiated outbound by Vincent over an authenticated protocol. Mission Control will expose bounded fleet operations/state transitions and will not require general inbound worker management ports for normal operation.
+Routine Vincent-to-CIC-Station communication will be initiated outbound by Vincent over an authenticated protocol. CIC Station will expose bounded fleet operations/state transitions and will not require general inbound worker management ports for normal operation.
 
-Mission Control is not a remote shell; SSH and standard Linux administration remain separate.
+CIC Station is not a remote shell; SSH and standard Linux administration remain separate.
 
 ## Rationale
 
