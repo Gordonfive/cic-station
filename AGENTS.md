@@ -28,9 +28,9 @@ Check current remote state in both `Gordonfive/mission-control` and `Gordonfive/
 
 ## Repository boundary
 
-This private repository owns the overall program roadmap, Mission Control planning/requirements/architecture, and Gordonfive-specific fleet/deployment state. Generic Vincent worker implementation belongs in `Gordonfive/vincent`.
+`Gordonfive/mission-control` owns the reusable Mission Control web application, API, database schema/migrations, tests, packaging, product documentation, and program roadmap. Generic Vincent worker implementation belongs in `Gordonfive/vincent`.
 
-Reusable Mission Control application source must move into a separate public AGPLv3 repository when reusable application coding begins. Do not accumulate reusable public product code alongside private fleet state.
+Private operational data belongs in the deployed Mission Control database, protected backups, deployment configuration, and secret systems—not Git. This repository remains private during development and may become public under AGPLv3 only after an explicit owner-approved release gate and complete history, secret, privacy, and configuration audit.
 
 ## Development workflow
 
