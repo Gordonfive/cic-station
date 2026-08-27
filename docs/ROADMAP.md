@@ -1,6 +1,6 @@
 # Mission Control and Vincent Roadmap
 
-**Roadmap updated:** 2026-08-27T08:26:00-08:00
+**Roadmap updated:** 2026-08-27T11:49:00-08:00
 
 This is the private recovery mirror and Mission Control product roadmap. Git is authoritative; Vincent remains the public worker platform.
 
@@ -54,16 +54,18 @@ The current private repository also remains responsible for preserving project r
 4. **Inventory and capabilities.** Record worker identity, Vincent version, installer provenance, hardware/resources, installed AI agents/providers, health, and last contact.
 5. **Assignments and leases.** Mission Control creates bounded assignments; workers accept time-bounded leases, renew active work, and allow expired/abandoned work to become eligible for reassignment without stale results superseding newer leases.
 6. **Authorization.** Associate workers/roles/assignments with least-privileged repository and project scopes rather than distributing broad credentials.
-7. **Results and audit.** Receive structured state transitions and outcomes such as assignment accepted, work started, blocked, validation passed/failed, commit produced, approval requested, completed, or lease expired.
-8. **Human approval gates.** Provide explicit approval for destructive operations, production actions, credential expansion, protected merges, releases, and other sensitive operations.
-9. **Fleet policy.** Represent minimum Vincent versions, update channels, staged/canary adoption, maintenance windows, and temporary pins without replacing Vincent's own trusted-upstream update mechanism.
-10. **Second worker and leases.** Use the laptop as a second worker when appropriate to prove multi-worker coordination, lease expiration/reassignment, and replacement behavior.
-11. **Service/API/database.** Once the Git-backed workflow is proven, implement the persistent Mission Control service with authenticated API and database.
-12. **Web interface.** Implement a responsive browser UI for enrollment, fleet status, worker details, assignments, approvals, failures, and reports. Phone-first operation remains a milestone.
-13. **Self-hosted packaging.** Support straightforward deployment on Linux servers, VMs/VPSs and, where appropriate, containers/NAS environments.
-14. **Public product separation.** Before public distribution, move reusable Mission Control application source into a public-safe codebase/repository boundary while keeping Gordonfive deployment state private.
-15. **Optional hosted service.** Evaluate a managed Mission Control offering only after self-hosting is established as a first-class supported model.
-16. **Multi-agent scheduling.** As Vincent gains Codex/Gemini/Copilot/Ollama/custom-agent adapters, Mission Control may select appropriate worker/agent combinations from reported capabilities and assignment requirements.
+7. **AI identity profiles and agent enrollment.** Let Mission Control assign a worker's AI provider plus intended account/organization/tenant/project context and authentication policy. Vincent performs provider-specific enrollment locally through an adapter, verifies non-secret effective identity/scope where possible, and reports enrollment/health state. Begin with Codex device/ChatGPT authorization where supported; keep the design provider-neutral for future agents.
+8. **Protected secret delivery.** Keep reusable AI credentials out of Git. If unattended provider enrollment is later required, define a protected secret broker/backend or one-time delivery mechanism using authenticated transport, unique least-privileged worker/provider credentials, rotation, and revocation. Never introduce a shared fleet-wide AI credential.
+9. **Results and audit.** Receive structured state transitions and outcomes such as assignment accepted, work started, blocked, validation passed/failed, commit produced, approval requested, completed, or lease expired.
+10. **Human approval gates.** Provide explicit approval for destructive operations, production actions, credential expansion, protected merges, releases, and other sensitive operations.
+11. **Fleet policy.** Represent minimum Vincent versions, update channels, staged/canary adoption, maintenance windows, and temporary pins without replacing Vincent's own trusted-upstream update mechanism.
+12. **Second worker and leases.** Use the laptop as a second worker when appropriate to prove multi-worker coordination, lease expiration/reassignment, and replacement behavior.
+13. **Service/API/database.** Once the Git-backed workflow is proven, implement the persistent Mission Control service with authenticated API and database.
+14. **Web interface.** Implement a responsive browser UI for enrollment, fleet status, worker details, assignments, approvals, failures, and reports. Phone-first operation remains a milestone.
+15. **Self-hosted packaging.** Support straightforward deployment on Linux servers, VMs/VPSs and, where appropriate, containers/NAS environments.
+16. **Public product separation.** Before public distribution, move reusable Mission Control application source into a public-safe codebase/repository boundary while keeping Gordonfive deployment state private.
+17. **Optional hosted service.** Evaluate a managed Mission Control offering only after self-hosting is established as a first-class supported model.
+18. **Multi-agent scheduling.** As Vincent gains Codex/Gemini/Copilot/Ollama/custom-agent adapters, Mission Control may select appropriate worker/agent combinations from reported capabilities and assignment requirements.
 
 ## Worker impermanence and recovery acceptance
 
@@ -99,6 +101,8 @@ That test is the meaningful proof of worker impermanence.
 - Git restores durable technical/project work; Project DNA restores intent; Mission Control restores managed-fleet operational state.
 - Vincent workers perform bounded work; Mission Control authorizes, dispatches/leases, observes, and records managed-fleet work.
 - Vincent does not depend on Mission Control for basic health, diagnostics, maintenance, or trusted-upstream software updates.
+- Mission Control may assign AI-provider identity/profile policy, but Vincent performs provider-specific enrollment and reports only non-secret identity/status data.
+- AI-provider credentials are unique/scoped/revocable where applicable and never stored in Git; shared fleet-wide AI credentials are prohibited.
 - Mission Control never replaces human judgment for high-impact approval gates.
 - Workers are replaceable and least-privileged, but productive workers are not destroyed unnecessarily merely to exercise that principle.
 - Destructive worker-recovery testing occurs at an explicit acceptance gate with durable state already preserved elsewhere.
