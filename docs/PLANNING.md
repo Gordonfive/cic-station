@@ -1,35 +1,35 @@
 # Planning and Work Tracking
 
-GitHub issues are the active planning system for the Vincent + CIC Station product family.
+GitHub issues are the active planning system for the VINCENT product family.
 
 ## Authority
 
-- GitHub issues: active work, defects, verification work, blockers, follow-ups, and unscheduled ideas.
+- `logrusbox/cic-station` issues: CIC Station-specific active work, defects, verification, blockers, and unscheduled ideas.
+- `logrusbox/vincent` issues: Vincent-specific active work.
+- `logrusbox/vincent-program` issues: only genuinely cross-product integration/governance work.
 - Pull requests: implementation/review state and change-specific evidence.
 - Repository milestones: target product releases.
-- Repository labels: lightweight priority, workstream, and cross-product classification where useful.
-- `docs/PROGRAM_ROADMAP.md`: cross-product milestone outcomes.
-- Each repository's `docs/ROADMAP.md`: product/release outcomes.
-- `docs/REQUIREMENTS.md`: stable requirements.
-- ADRs: consequential accepted decisions.
-- `docs/STATUS.md`: concise current implementation/test state.
+- Repository labels: lightweight priority/workstream classification where useful.
+- `logrusbox/vincent-program/docs/PROGRAM_ROADMAP.md`: cross-product milestone outcomes.
+- Each product repository's `docs/ROADMAP.md`: product/release outcomes.
+- Product `docs/REQUIREMENTS.md`: stable product requirements.
+- Product ADRs: consequential product decisions.
+- Program ADRs: consequential decisions that genuinely apply above both products.
+- Product `docs/STATUS.md`: concise current product implementation/test state.
+- Program `docs/STATUS.md`: concise cross-product state.
 
-A separate GitHub Projects v2 board is intentionally not part of the authoritative workflow. The connected GitHub automation used for routine project management can directly maintain repository issues, PRs, branches, and issue metadata but cannot reliably maintain Projects v2 fields/views/statuses. Requiring a manually synchronized project board would create a second source of truth and unnecessary maintenance burden.
+A separate GitHub Projects v2 board is intentionally not part of the authoritative workflow because the connected automation cannot maintain it directly without creating manual synchronization burden.
 
-## Cross-repository planning
+## Issue placement
 
-Use organization-scoped GitHub issue search across `logrusbox/vincent` and `logrusbox/cic-station` rather than duplicating issues across repositories.
+Use the narrowest correct owner:
 
-Cross-product work should have one primary issue in the repository that owns the implementation or decision. Link the counterpart repository issue only when there is genuinely distinct work that must be tracked independently. Do not create duplicate mirror issues for visibility.
+- If one product can implement and accept the work independently, keep the issue in that product repository.
+- If acceptance genuinely requires coordinated changes/proof in both products, use one issue in `logrusbox/vincent-program` and link the authoritative product issues/PRs.
+- Do not create duplicate mirror issues merely for visibility.
 
 ## Lightweight metadata
 
-Prefer native GitHub metadata over custom documents:
+Prefer native GitHub metadata over custom planning documents: issue state, product milestone, labels, assignee when useful, linked PRs, and dependency links.
 
-- issue state for open/completed work;
-- milestone for target release;
-- labels for priority/workstream/cross-product classification;
-- assignee only when ownership needs to be explicit;
-- linked PRs and issue dependencies for implementation/blocking relationships.
-
-Avoid story points, sprint fields, estimates, duplicated release fields, permanent handoff documents, and other metadata that requires continual manual synchronization without demonstrated value.
+Avoid story points, sprint fields, duplicated release fields, permanent handoff documents, and other metadata requiring continual synchronization without demonstrated value.
