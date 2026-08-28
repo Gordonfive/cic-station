@@ -5,12 +5,12 @@
 ## Repository state
 
 - The repository rename from `Gordonfive/mission-control` to `Gordonfive/cic-station` is complete; `Gordonfive/cic-station` is the canonical control-plane repository.
-- `Gordonfive/cic-station` remains private during development and is the canonical home for the reusable CIC Station application plus its product/program documentation.
+- `Gordonfive/cic-station` is public during pre-release development and is the canonical home for the reusable CIC Station application plus its product/program documentation. ADR-0020 supersedes the private-until-release visibility clause of ADR-0010 without changing the single-repository or source/operational-data boundary.
 - A third application repository is not planned. Private fleet information will be stored as deployed application data, with secrets and production configuration outside Git.
 - CIC Station is currently `0.1.0` build `0001`.
 - No CIC Station service, API, database schema, or web UI implementation has started yet; the repository currently contains the canonical product/governance/security/protocol model and validation scaffolding.
 - `main` is the only permanent branch; automatic deletion of merged temporary branches is enabled.
-- GitHub branch-protection/ruleset enforcement is intentionally deferred until the public-release gate on the current repository plan. PR, CI, squash-merge, no-force-push, and branch-cleanup rules remain procedural requirements while private.
+- No GitHub repository ruleset is currently configured. Because the repository is public, the documented PR + CI, no-force-push, branch-protection, and squash-merge policy can now be enforced rather than remaining procedural only.
 
 ## Current program state
 
