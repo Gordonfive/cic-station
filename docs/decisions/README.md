@@ -26,7 +26,7 @@ ADR numbers are assigned only on the integration branch/PR and are never reused 
 - `ADR-0006-human-approval-gates.md`
 - `ADR-0007-ai-provider-identity-profiles.md`
 - `ADR-0008-git-durable-project-authority-operational-database.md`
-- `ADR-0009-agplv3-public-application-license.md`
+- `ADR-0009-agplv3-public-application-license.md` — visibility clause superseded by ADR-0020
 - `ADR-0010-single-application-repository-private-until-release.md` — visibility portion superseded by ADR-0020
 - `ADR-0011-versioning-and-build-identifiers.md`
 - `ADR-0012-rename-product-to-cic-station.md`
