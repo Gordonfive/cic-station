@@ -63,15 +63,15 @@ CIC Station versions independently using Semantic Versioning. Pre-1.0 developmen
 - straightforward self-hosted deployment on supported Linux server/VM/VPS/container environments with documented TLS termination/trust boundaries;
 - documented backup/recovery and upgrade procedures, including operator-authentication and worker-credential recovery/replacement semantics.
 
-## 0.6.0 — Public application ecosystem
+## 0.6.0 — Formal release ecosystem
 
 - complete Git-history and release-content audit for privacy, secrets, infrastructure, and production configuration;
-- publish the existing reusable application repository under AGPLv3;
+- formal release of the existing public application source under AGPLv3;
 - public-safe configuration examples and schemas;
 - release tags/GitHub Releases and `CHANGELOG.md`;
 - package/container distribution as appropriate;
 - dependency/license/security review;
-- no Gordonfive operational data, secrets, or private production configuration in the published source.
+- no Gordonfive operational data, secrets, or private production configuration in release contents.
 
 ## 0.7.0 and later — Multi-project and multi-agent maturity
 
