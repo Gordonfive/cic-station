@@ -10,7 +10,7 @@ CIC Station is designed as a self-hostable server application with a responsive 
 
 ## Users
 
-Primary users are operators who manage one or more Vincent workers and software projects. The initial deployment is Gordonfive's own fleet. The repository remains private during development and is intended to become a public AGPLv3 product at an explicit owner-approved release gate.
+Primary users are operators who manage one or more Vincent workers and software projects. The initial deployment is Gordonfive's own fleet. Development occurs in the public `Gordonfive/cic-station` repository, while formal release readiness remains gated by the accepted product, security, validation, and release criteria.
 
 ## Product boundary
 
@@ -62,9 +62,9 @@ If unattended provider enrollment is later required, CIC Station must use a sepa
 
 ## Application source and operational-data separation
 
-`Gordonfive/cic-station` is the reusable application repository. It remains private during development and may become the public AGPLv3 source repository at an explicit release gate.
+`Gordonfive/cic-station` is the reusable public application repository during pre-release development. Public repository visibility does not mean the product has passed its formal release gate.
 
-Private worker inventory, fleet state, assignments, authorization records, results, public/verifier identity material, and audit history belong in the deployed database and protected backups rather than Git. Worker private credentials, raw secrets, and private production configuration remain in protected worker/deployment/secret systems. Publication requires a complete repository-history and release-content audit.
+Private worker inventory, fleet state, assignments, authorization records, results, public/verifier identity material, and audit history belong in the deployed database and protected backups rather than Git. Worker private credentials, raw secrets, and private production configuration remain in protected worker/deployment/secret systems. Formal release still requires the applicable complete repository-history and release-content audit.
 
 ## Non-goals
 

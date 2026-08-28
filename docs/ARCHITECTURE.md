@@ -122,6 +122,6 @@ Loss of CIC Station must not destroy project source, product intent, completed w
 
 ## Repository and operational-data boundary
 
-`Gordonfive/cic-station` contains the reusable application code, schemas, safe examples, tests, packaging, and product documentation. It remains private during development and may become the public AGPLv3 source repository at an explicit owner-approved release gate.
+`Gordonfive/cic-station` contains the reusable application code, schemas, safe examples, tests, packaging, and product documentation and is public during pre-release development. Public visibility is separate from formal release readiness.
 
-Gordonfive fleet data is application data: operator identities/authorization state, worker public identities and authorization state, assignments, results, leases, and audit history belong in the deployed operational database and protected backups. Worker private credentials, raw secrets, and private production configuration remain outside Git and outside ordinary CIC Station records. Publication requires an audit of the complete Git history and proposed release contents.
+Gordonfive fleet data is application data: operator identities/authorization state, worker public identities and authorization state, assignments, results, leases, and audit history belong in the deployed operational database and protected backups. Worker private credentials, raw secrets, and private production configuration remain outside Git and outside ordinary CIC Station records. Formal release still requires the applicable audit of the complete Git history and proposed release contents.

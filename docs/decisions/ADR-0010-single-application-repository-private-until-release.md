@@ -1,6 +1,6 @@
 # ADR-0010: Use one CIC Station application repository, private until release
 
-**Status:** Accepted
+**Status:** Accepted — visibility portion superseded by ADR-0020
 **Decision date:** 2026-08-27
 
 ## Context
@@ -34,3 +34,7 @@ A third repository would add coordination and documentation overhead without pro
 ## Supersedes
 
 - `ADR-0002-public-application-private-deployment-split.md`
+
+## Superseded by
+
+- `ADR-0020-public-development-visibility.md` supersedes only the private-until-release visibility requirement. The single-repository and source/operational-data separation decisions remain current.

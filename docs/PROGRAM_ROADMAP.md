@@ -22,7 +22,7 @@ This is the canonical cross-product roadmap. Product-specific implementation det
 | M3 | First managed-worker CIC Station model proven through the persistent operational service/database with explicit decentralized enrollment, scoped authorization, inventory, bounded work-item/attempt execution, result reporting, revocation, and managed operational configuration | Planned |
 | M4 | Two-worker coordination proves persistent lease ownership, liveness/grace behavior, stale-result protection, replacement, and recovery | Planned |
 | M5 | CIC Station service/database operational hardening plus responsive phone-capable web UI, deployment/recovery workflows, and supported direct/private/tunneled connectivity modes proven | Planned |
-| M6 | CIC Station passes its public-release audit and the existing application repository is published under AGPLv3 with self-hosted packaging and a release process | Planned |
+| M6 | CIC Station passes its formal-release audit and ships the existing public application source under AGPLv3 with self-hosted packaging and a release process | Planned |
 | M7 | Multi-project and multi-agent/provider scheduling/identity policy proven with project isolation, capability matching, centrally assigned worker network/egress policy, and managed software/source delivery where required | Planned |
 | M8 | Full destructive recovery proves workers and CIC Station can be reconstructed from durable/protected external state; 1.0 acceptance criteria satisfied | Planned |
 
