@@ -100,6 +100,26 @@ Requirement identifiers are permanent once merged to `main`. Superseded or withd
 - **MC-REQ-0067 — Operator-authentication recovery.** CIC Station must provide a documented self-hosted administrative recovery path for loss of operator-authentication state without silently restoring old credentials or bypassing continuing audit/accountability requirements.
 - **MC-REQ-0068 — Encrypted transport.** Operator browser/API traffic and routine Vincent-to-CIC-Station communication carrying credentials, authorization state, assignments, results, or operational data must use TLS or equivalent authenticated encryption outside explicitly local non-production development that carries no real credentials or operational data.
 
+## Worker identity and enrollment trust
+
+- **MC-REQ-0069 — Worker-generated asymmetric credential.** Each Vincent installation enrolling with CIC Station must generate its own asymmetric security credential so proof of worker identity does not depend on a fleet-wide shared secret or a reusable private credential issued by CIC Station.
+- **MC-REQ-0070 — Enrollment identity binding.** The enrollment request and authorized approval must bind the worker record and granted authority to the exact worker public identity or cryptographic fingerprint presented for that installation.
+- **MC-REQ-0071 — Worker proof of possession.** Subsequent authenticated worker connections must prove possession of the private credential corresponding to the approved public identity rather than relying only on a claimed worker identifier.
+- **MC-REQ-0072 — Replay-resistant bootstrap.** Enrollment, claim, bootstrap, and credential-transition flows must resist replay and substitution; any additional bootstrap token or challenge material must be bounded, expiring, and single-use where reuse would create authority.
+- **MC-REQ-0073 — Worker private-key protection.** The worker private credential must remain in protected Vincent-local storage with least-privileged access and must not be stored in CIC Station, Git, task payloads, logs, or ordinary operational records.
+- **MC-REQ-0074 — Worker credential lifecycle.** Worker authentication credentials must support explicit rotation, suspension, revocation, replacement, and auditable transitions without silently expanding or restoring authority.
+- **MC-REQ-0075 — CIC Station server trust verification.** Vincent must verify CIC Station's authenticated transport identity and fail closed on invalid or untrusted server identity except during a deliberately defined safe bootstrap/recovery flow that does not silently weaken established trust.
+- **MC-REQ-0076 — Worker recovery identity safety.** Recovery or credential rotation may preserve an existing worker record only through an explicit attributable transition; reinstallation must otherwise receive fresh worker authority rather than silently inheriting the previous installation's credential.
+
+## Worker protocol compatibility and retry safety
+
+- **MC-REQ-0077 — Explicit protocol version.** Every worker/control-plane exchange must identify the logical protocol or schema version needed to determine compatibility independently of product SemVer.
+- **MC-REQ-0078 — Declared compatibility.** CIC Station and Vincent must use explicit compatibility rules or supported-version ranges and fail visibly and safely when no compatible protocol interpretation exists.
+- **MC-REQ-0079 — Retry-safe network semantics.** The worker protocol must not assume exactly-once network delivery; reconnects, timeouts, and retries must be handled without silently duplicating authoritative state changes.
+- **MC-REQ-0080 — Stable idempotency identity.** Retryable state-changing operations must carry stable request, operation, assignment, event, or equivalent identifiers sufficient for receivers to detect and safely handle duplicate delivery.
+- **MC-REQ-0081 — Ordered state-transition safety.** Protocol state transitions must detect stale, conflicting, superseded, or out-of-order updates and reject or reconcile them explicitly rather than allowing older messages to overwrite newer authoritative state.
+- **MC-REQ-0082 — Protocol compatibility visibility.** Worker inventory, diagnostics, and release metadata must expose enough protocol-version/compatibility information to diagnose incompatible Vincent and CIC Station versions.
+
 ## Requirement maintenance
 
 New requirements receive the next unused `MC-REQ-####` identifier through normal pull-request review. Requirements are implementation-neutral statements of what must be true; implementation choices belong in architecture documents and ADRs.
