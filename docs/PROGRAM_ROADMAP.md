@@ -58,29 +58,22 @@ Key program constraints:
 
 ## Program planning structure
 
-Vincent and CIC Station remain separate products and repositories under the Logrus Box GitHub organization with independent SemVer/release lifecycles. Program planning is unified in one organization-owned GitHub Project spanning `logrusbox/vincent` and `logrusbox/cic-station`.
+Vincent and CIC Station remain two separate products and two separate repositories with independent SemVer/release lifecycles. Program planning is unified through repository-native GitHub issues and metadata rather than a separately maintained GitHub Projects board.
 
-Source-of-truth boundaries:
+Planning rules:
 
-- repository issues are the authoritative planning/work units for concrete features, bugs, design gaps, verification, and maintenance;
-- linked pull requests are implementation/review evidence and should not normally be duplicated as separate planning cards;
-- repository milestones are authoritative for product release targets such as Vincent `1.0.0` or CIC Station `0.2.0`;
-- this program roadmap is authoritative for M0-M8 cross-product outcomes;
-- product/requirements/ADRs remain authoritative for intent, normative requirements, and consequential decisions;
-- the GitHub Project provides triage, sequencing, priority, workstream, dependency, and current-status visibility without duplicating those authorities.
+- `logrusbox/vincent` issues own Vincent-specific work;
+- `logrusbox/cic-station` issues own CIC Station-specific work and cross-product program decisions when no single Vincent implementation issue is the better authority;
+- repository milestones identify target product releases;
+- labels provide only lightweight priority/workstream/cross-product classification where useful;
+- cross-product work uses links/dependencies and distinct counterpart issues only when each repository has real implementation or verification work;
+- duplicate mirror issues are prohibited merely for visibility;
+- pull requests remain implementation/review evidence linked to issues rather than separate planning records;
+- organization-scoped GitHub issue searches provide the combined Vincent + CIC Station work view;
+- requirements and ADR authority are never duplicated into issue metadata;
+- `main` remains the only permanent branch in each repository.
 
-Project metadata should remain intentionally small:
-
-- Status: Backlog, Ready, In Progress, In Review, Verification, Done;
-- Product: Vincent, CIC Station, Cross-product;
-- Priority: P0 Critical, P1 High, P2 Normal, P3 Low;
-- Program Milestone: M0-M8 or Later/Unscheduled;
-- Workstream: a small controlled technical-domain list;
-- issue type should use GitHub's native organization issue types where available rather than a duplicate Project-only field.
-
-Use native GitHub issue dependencies/relationships for blocking and cross-repository sequencing. Do not create duplicate umbrella issues merely to make dependencies visible and do not maintain a separate manual Blocked field unless native dependency filtering proves insufficient.
-
-The default Project view should emphasize current attention rather than the complete backlog: Ready, In Progress, In Review, and Verification. Separate Inbox, Backlog, Verification, Roadmap, and Done views provide capture, recovery, and history without making the daily surface noisy.
+See `docs/PLANNING.md` for the detailed work-tracking model.
 
 ## Cross-product acceptance rules
 
