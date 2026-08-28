@@ -15,7 +15,7 @@ Outside pull requests are not accepted yet. Revisit external contribution policy
 - Delete merged/superseded branches after useful work is preserved.
 - Do not force-push or delete `main`.
 
-GitHub branch-protection/ruleset enforcement is deferred while this repository remains private on the current plan. Until the public-release gate, the workflow above is a procedural project requirement. Configure enforced PR + CI protection, force-push/deletion prevention, and related repository rules when CIC Station becomes public.
+The repository is public during pre-release development. The workflow above should therefore be enforced with GitHub repository rules when available rather than relying only on procedure. Until those rules are configured, the same PR + CI + squash + no-force-push requirements remain mandatory project policy.
 
 ## Documentation changes
 
@@ -34,7 +34,7 @@ Do not recreate permanent handoff, Project Start, or planned-feature backlog doc
 
 ## Security
 
-Never commit raw secrets, credentials, authentication caches, production data, private keys, or reusable enrollment/provider credentials. Private repository visibility does not make secret storage in Git acceptable.
+Never commit raw secrets, credentials, authentication caches, production data, private keys, or reusable enrollment/provider credentials. Public repository visibility reinforces rather than replaces this source/operational-data boundary.
 
 ## Releases
 
