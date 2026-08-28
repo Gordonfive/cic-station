@@ -18,6 +18,7 @@ This directory contains the canonical CIC Station and cross-product program docu
 - Pull requests — integration/review state and change-specific evidence.
 - `CHANGELOG.md` — concise release history.
 - `CONTRIBUTING.md` — repository workflow and contribution policy.
+- `SECURITY.md` — security reporting and public-repository security boundary.
 
 ## Lifecycle rules
 
