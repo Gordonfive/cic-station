@@ -4,20 +4,22 @@ This roadmap contains CIC Station product/release outcomes only. The cross-produ
 
 CIC Station versions independently using Semantic Versioning. Pre-1.0 development uses `0.x.y`; the first release satisfying accepted 1.0 criteria becomes `1.0.0`.
 
-## 0.1.0 — Product and data-model foundation
+## 0.1.0 — Product, domain-model, and persistence foundation
 
 - canonical product, requirements, ADR, architecture, status, and release documentation;
-- worker/enrollment/authorization/inventory/assignment/lease/result/audit data models;
+- worker/enrollment/authorization/inventory/work-item/assignment/attempt/lease/result/audit domain models;
+- minimum persistent application service/API/database foundation for operational fleet state;
 - operator/actor identity, authorization, session, bootstrap, and recovery model;
 - worker-generated asymmetric installation identity, proof-of-possession, replay-resistant enrollment/bootstrap, credential lifecycle, and server-trust model;
 - explicitly versioned worker protocol with declared compatibility, retry/idempotency identifiers, and stale/conflicting transition protection;
 - authenticated encrypted outbound worker protocol definition;
 - encrypted operator/API transport boundary;
 - explicit durable/ephemeral data authority model;
+- multidimensional worker state model separating scheduling/availability, liveness/health, execution, and power state; simple Working/Available/Offline/Standby labels may be derived for UI use;
 - AI-provider identity-profile model;
 - protected-secret boundary definition.
 
-## 0.2.0 — First managed-worker proof
+## 0.2.0 — First managed-worker proof through persistent operational authority
 
 - explicit Vincent enrollment and approval by an authenticated authorized operator;
 - approval bound to the exact worker public identity with proof-of-possession on subsequent connections;
@@ -25,29 +27,31 @@ CIC Station versions independently using Semantic Versioning. Pre-1.0 developmen
 - declared Vincent/CIC Station protocol compatibility with visible incompatibility failure;
 - retry-safe assignment/acknowledgement/result state transitions without exactly-once delivery assumptions;
 - scoped authorization and independent revocation;
-- worker inventory, version/provenance, capabilities, health, and protocol-compatibility visibility;
-- bounded assignment and structured result reporting;
-- conservative Git-backed coordination where useful for the first proof;
+- worker inventory, version/provenance, capabilities, multidimensional health/availability/execution visibility, and protocol-compatibility visibility;
+- bounded work item and execution-attempt lifecycle with structured result reporting;
+- operational enrollment/authorization/assignment/attempt/result state persisted through the CIC Station service/database rather than using Git as the live control-plane database;
+- Git retained for durable project artifacts and conservative transitional coordination where appropriate;
 - human approval gate round-trip with attributable operator audit;
 - AI-provider intended/effective identity mismatch reporting.
 
 ## 0.3.0 — Leases and multi-worker coordination
 
-- time-bounded assignment leases;
-- heartbeat/liveness with grace states;
+- time-bounded assignment/attempt leases backed by persistent CIC Station operational state;
+- heartbeat/liveness with grace states distinct from scheduling and execution state;
 - explicit lease clock-authority/skew/restart semantics;
-- stale-result protection;
+- stale-result protection across expired/superseded attempts;
 - explicit assignment precedence and capability matching;
 - second-worker coordination;
 - worker retirement/replacement;
 - coordinator restart/reconciliation semantics.
 
-## 0.4.0 — Persistent service/API/database
+## 0.4.0 — Service/database operational hardening
 
-- self-hostable application service;
-- authenticated authorized API with separate human/service identities;
-- persistent operational database;
-- enrollment/inventory/assignment/lease/audit operations moved from Git-backed prototype state into the service where appropriate;
+- hardened self-hostable application service and authenticated authorized API;
+- production-shaped database migrations/schema lifecycle;
+- backup/restore, upgrade, rollback/recovery, and reconciliation procedures;
+- observability and operational failure handling for service/database state;
+- deployment hardening across supported Linux server/VM/VPS/container environments;
 - protected secret-delivery integration only if unattended credential use is actually required.
 
 ## 0.5.0 — Web UI and packaging
@@ -88,7 +92,8 @@ CIC Station 1.0 must be operationally trustworthy rather than merely feature-ric
 - explicit worker-protocol compatibility/versioning and retry-safe/idempotent state transitions;
 - explicit enrollment, least-privileged worker authorization, revocation, and audit;
 - multiple workers and projects;
-- correct assignment/lease/reassignment semantics;
+- correct work-item/attempt/lease/reassignment semantics;
+- multidimensional worker scheduling/liveness/execution/power state with safe derived operator statuses;
 - human approval gates;
 - worker replacement and control-plane recovery;
 - provider identity-policy handling without Git-based secret storage;
