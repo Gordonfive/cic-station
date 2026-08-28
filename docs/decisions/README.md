@@ -34,5 +34,7 @@ ADR numbers are assigned only on the integration branch/PR and are never reused 
 - `ADR-0014-encrypted-transport-baseline.md`
 - `ADR-0015-worker-generated-asymmetric-identity.md`
 - `ADR-0016-versioned-idempotent-worker-protocol.md`
+- `ADR-0017-worker-state-dimensions.md`
+- `ADR-0018-persistent-operational-state-before-multi-worker-leases.md`
 
 Do not maintain a second full-text decision register.
