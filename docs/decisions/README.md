@@ -36,5 +36,6 @@ ADR numbers are assigned only on the integration branch/PR and are never reused 
 - `ADR-0016-versioned-idempotent-worker-protocol.md`
 - `ADR-0017-worker-state-dimensions.md`
 - `ADR-0018-persistent-operational-state-before-multi-worker-leases.md`
+- `ADR-0019-decentralized-enrollment-and-worker-egress-policy.md`
 
 Do not maintain a second full-text decision register.
