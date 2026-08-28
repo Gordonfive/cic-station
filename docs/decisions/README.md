@@ -27,7 +27,7 @@ ADR numbers are assigned only on the integration branch/PR and are never reused 
 - `ADR-0007-ai-provider-identity-profiles.md`
 - `ADR-0008-git-durable-project-authority-operational-database.md`
 - `ADR-0009-agplv3-public-application-license.md`
-- `ADR-0010-single-application-repository-private-until-release.md`
+- `ADR-0010-single-application-repository-private-until-release.md` — visibility portion superseded by ADR-0020
 - `ADR-0011-versioning-and-build-identifiers.md`
 - `ADR-0012-rename-product-to-cic-station.md`
 - `ADR-0013-operator-identity-and-access-control.md`
@@ -37,5 +37,6 @@ ADR numbers are assigned only on the integration branch/PR and are never reused 
 - `ADR-0017-worker-state-dimensions.md`
 - `ADR-0018-persistent-operational-state-before-multi-worker-leases.md`
 - `ADR-0019-decentralized-enrollment-and-worker-egress-policy.md`
+- `ADR-0020-public-development-visibility.md`
 
 Do not maintain a second full-text decision register.
