@@ -10,7 +10,7 @@ CIC Station is designed as a self-hostable server application with a responsive 
 
 ## Users
 
-Primary users are operators who manage one or more Vincent workers and software projects. The initial deployment is Gordonfive's own fleet. Development occurs in the public `Gordonfive/cic-station` repository, while formal release readiness remains gated by the accepted product, security, validation, and release criteria.
+Primary users are operators who manage one or more Vincent workers and software projects. The initial deployment is Logrus Box's own fleet. Development occurs in the public `logrusbox/cic-station` repository, while formal release readiness remains gated by the accepted product, security, validation, and release criteria.
 
 ## Product boundary
 
@@ -62,7 +62,7 @@ If unattended provider enrollment is later required, CIC Station must use a sepa
 
 ## Application source and operational-data separation
 
-`Gordonfive/cic-station` is the reusable public application repository during pre-release development. Public repository visibility does not mean the product has passed its formal release gate.
+`logrusbox/cic-station` is the reusable public application repository during pre-release development. Public repository visibility does not mean the product has passed its formal release gate.
 
 Private worker inventory, fleet state, assignments, authorization records, results, public/verifier identity material, and audit history belong in the deployed database and protected backups rather than Git. Worker private credentials, raw secrets, and private production configuration remain in protected worker/deployment/secret systems. Formal release still requires the applicable complete repository-history and release-content audit.
 
@@ -75,7 +75,7 @@ CIC Station is not intended to be:
 - a requirement for standalone Vincent health or maintenance;
 - an autonomous production authority by default;
 - a massive distributed scheduler before a smaller design proves insufficient;
-- tied exclusively to Codex, GitHub, one operating system for the server, or a Gordonfive-hosted service.
+- tied exclusively to Codex, GitHub, one operating system for the server, or a Logrus Box-hosted service.
 
 ## Success
 

@@ -15,7 +15,7 @@ Before changing this repository, read:
 9. `docs/decisions/README.md`
 10. relevant active GitHub issues and pull requests
 
-Check current remote state in both `Gordonfive/cic-station` and `Gordonfive/vincent` before assuming a branch is current. Git is the durable authority; chat history is not.
+Check current remote state in both `logrusbox/cic-station` and `logrusbox/vincent` before assuming a branch is current. Git is the durable authority; chat history is not.
 
 ## Authority and safety
 
@@ -28,7 +28,7 @@ Check current remote state in both `Gordonfive/cic-station` and `Gordonfive/vinc
 
 ## Repository boundary
 
-`Gordonfive/cic-station` owns the reusable CIC Station web application, API, database schema/migrations, tests, packaging, product documentation, and program roadmap. Generic Vincent worker implementation belongs in `Gordonfive/vincent`.
+`logrusbox/cic-station` owns the reusable CIC Station web application, API, database schema/migrations, tests, packaging, product documentation, and program roadmap. Generic Vincent worker implementation belongs in `logrusbox/vincent`.
 
 Operational fleet data belongs in the deployed CIC Station database, protected backups, deployment configuration, and secret systems—not Git. The repository is public during pre-release development, so public-safe source, examples, tests, configuration, and documentation practices apply continuously. Public visibility does not remove the formal release audit or make operational data, credentials, private keys, authentication state, or production configuration appropriate for Git.
 

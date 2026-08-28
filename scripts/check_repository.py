@@ -10,6 +10,7 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 REQUIRED = [
     "AGENTS.md",
     "README.md",
+    "SECURITY.md",
     "CONTRIBUTING.md",
     "CHANGELOG.md",
     "VERSION",

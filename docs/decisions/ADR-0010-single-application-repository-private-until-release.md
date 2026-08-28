@@ -11,25 +11,25 @@ The earlier repository boundary assumed that the control-plane repository would 
 
 Use two product repositories:
 
-- `Gordonfive/vincent` for the worker installer, operating environment, runtime, diagnostics, updates, provider adapters, and CIC Station client.
-- `Gordonfive/cic-station` for the reusable CIC Station web application, API, database schema and migrations, tests, packaging, and product/program documentation.
+- `logrusbox/vincent` for the worker installer, operating environment, runtime, diagnostics, updates, provider adapters, and CIC Station client.
+- `logrusbox/cic-station` for the reusable CIC Station web application, API, database schema and migrations, tests, packaging, and product/program documentation.
 
-Keep `Gordonfive/cic-station` private during development. At an explicit owner-approved public-release gate, publish this repository under AGPLv3 after a complete audit.
+The original decision kept the CIC Station repository private during development until an explicit release gate. ADR-0020 supersedes that visibility requirement: `logrusbox/cic-station` is public during pre-release development. The two-repository and source/operational-data separation decisions remain current.
 
 Do not commit private operational data. Worker identities, inventory, enrollment and authorization state, assignments, leases, results, and audit history belong in the deployed CIC Station database and protected backups. Raw secrets and private production configuration belong in protected secret and deployment systems outside Git.
 
 ## Rationale
 
-A third repository would add coordination and documentation overhead without protecting data that should not be committed to source control in the first place. Keeping application source together also avoids a later code migration. Separating source from runtime data and secrets is the conventional application boundary.
+A third application repository would add coordination and documentation overhead without protecting data that should not be committed to source control in the first place. Keeping application source together also avoids a later code migration. Separating source from runtime data and secrets is the conventional application boundary.
 
 ## Consequences
 
-- CIC Station implementation may begin in the existing private repository.
+- CIC Station implementation proceeds in the existing public application repository.
 - No separate application repository is required.
-- Public-safe practices apply from the start even while the repository is private.
-- Deleting files immediately before publication is insufficient because Git retains history.
-- The public-release gate must audit the complete Git history, dependencies, secrets, privacy-sensitive content, infrastructure references, production configuration, documentation, and release artifacts.
-- Any credential ever committed must be removed from history where appropriate and rotated before publication.
+- Public-safe practices apply continuously.
+- Deleting files immediately before a formal release is insufficient because Git retains history.
+- The formal-release gate must audit the complete Git history, dependencies, secrets, privacy-sensitive content, infrastructure references, production configuration, documentation, and release artifacts.
+- Any credential ever committed must be removed from history where appropriate and rotated before release.
 
 ## Supersedes
 

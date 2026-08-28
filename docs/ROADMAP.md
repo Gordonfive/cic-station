@@ -71,7 +71,7 @@ CIC Station versions independently using Semantic Versioning. Pre-1.0 developmen
 - release tags/GitHub Releases and `CHANGELOG.md`;
 - package/container distribution as appropriate;
 - dependency/license/security review;
-- no Gordonfive operational data, secrets, or private production configuration in release contents.
+- no Logrus Box operational data, secrets, or private production configuration in release contents.
 
 ## 0.7.0 and later — Multi-project and multi-agent maturity
 

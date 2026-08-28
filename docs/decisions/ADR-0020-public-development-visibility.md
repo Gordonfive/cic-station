@@ -11,7 +11,7 @@ Repository visibility and product release readiness are separate concerns. Publi
 
 ## Decision
 
-Develop `Gordonfive/cic-station` publicly before the first stable release.
+Develop `logrusbox/cic-station` publicly before the first stable release.
 
 Public repository visibility does not constitute a stable product release, waive acceptance criteria, open external contribution policy, or remove security/release audit requirements. CIC Station operational data and secrets remain outside Git under the existing source/operational-data boundary.
 
@@ -25,7 +25,7 @@ Public development makes the evolving architecture and implementation inspectabl
 
 ## Consequences
 
-- `Gordonfive/cic-station` is public during pre-1.0 development.
+- `logrusbox/cic-station` is public during pre-1.0 development.
 - Public visibility must not be described as equivalent to release readiness or support status.
 - Public-safe source, documentation, examples, tests, and configuration practices apply continuously rather than only immediately before release.
 - Operational fleet data, credentials, production configuration, and protected deployment state remain outside Git.

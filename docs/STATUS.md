@@ -4,13 +4,15 @@
 
 ## Repository state
 
-- The repository rename from `Gordonfive/mission-control` to `Gordonfive/cic-station` is complete; `Gordonfive/cic-station` is the canonical control-plane repository.
-- `Gordonfive/cic-station` is public during pre-release development and is the canonical home for the reusable CIC Station application plus its product/program documentation. ADR-0020 supersedes the private-until-release visibility clause of ADR-0010 without changing the single-repository or source/operational-data boundary.
+- The repository rename from `Gordonfive/mission-control` to `Gordonfive/cic-station` is complete; ownership subsequently moved to the Logrus Box organization, and `logrusbox/cic-station` is the canonical control-plane repository.
+- `logrusbox/cic-station` is public during pre-release development and is the canonical home for the reusable CIC Station application plus its product/program documentation. ADR-0020 supersedes the private-until-release visibility clause of ADR-0010 without changing the single-repository or source/operational-data boundary.
+- `logrusbox/vincent` is the canonical Vincent worker repository.
 - A third application repository is not planned. Private fleet information will be stored as deployed application data, with secrets and production configuration outside Git.
 - CIC Station is currently `0.1.0` build `0001`.
 - No CIC Station service, API, database schema, or web UI implementation has started yet; the repository currently contains the canonical product/governance/security/protocol model and validation scaffolding.
 - `main` is the only permanent branch; automatic deletion of merged temporary branches is enabled.
 - No GitHub repository ruleset is currently configured. Because the repository is public, the documented PR + CI, no-force-push, branch-protection, and squash-merge policy can now be enforced rather than remaining procedural only.
+- Logrus Box is the GitHub organization for the Vincent product family. The single organization-level `VINCENT Program` Project is the approved shared planning surface; repository issues remain the concrete work authority, repository milestones own product release targets, and this repository's program roadmap owns M0-M8 outcomes.
 
 ## Current program state
 
@@ -35,6 +37,7 @@
 - Vincent client requirements/implementation must be aligned with the approved CIC Station worker-trust and protocol contract before the first managed-worker proof.
 - Issue #25 must be resolved before CIC Station 0.1.0 database/schema design hardens the work/attempt/lease/result relationships.
 - Lease clock authority/skew/restart semantics remain to be defined before the 0.3.0 multi-worker lease implementation.
+- GitHub repository rulesets and the organization-level Project require GitHub settings/Projects configuration; repository content and connector-accessible state are being prepared so those settings do not become a second source of truth.
 
 ## Next actions
 

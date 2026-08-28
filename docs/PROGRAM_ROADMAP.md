@@ -9,7 +9,7 @@ This is the canonical cross-product roadmap. Product-specific implementation det
 - Git preserves durable technical/project work; product/requirements/ADRs preserve intent; CIC Station restores managed-fleet operation.
 - Workers and the control plane are replaceable; durable authoritative work must not depend on one machine or chat thread.
 - Product/release evidence is required before declaring milestones complete.
-- Generic Vincent and CIC Station releases must support independent self-hosted deployments without requiring a Gordonfive-operated rendezvous, registry, pairing, or relay service.
+- Generic Vincent and CIC Station releases must support independent self-hosted deployments without requiring a Logrus Box-operated rendezvous, registry, pairing, or relay service.
 - Public Internet access is not a prerequisite for Vincent/CIC Station enrollment when the two products have a mutually reachable private network path.
 
 ## Milestones
@@ -58,19 +58,29 @@ Key program constraints:
 
 ## Program planning structure
 
-Vincent and CIC Station remain two separate products and two separate repositories with independent SemVer/release lifecycles. Program planning should be unified above the repository boundary.
+Vincent and CIC Station remain separate products and repositories under the Logrus Box GitHub organization with independent SemVer/release lifecycles. Program planning is unified in one organization-owned GitHub Project spanning `logrusbox/vincent` and `logrusbox/cic-station`.
 
-A separate project-management thread is expected to create a single GitHub Project spanning both repositories. That GitHub Project should become the shared planning/triage view for cross-product work while repository-local issues, PRs, code, product requirements, ADRs, releases, and histories remain authoritative in their respective repositories.
+Source-of-truth boundaries:
 
-Recommended project setup notes for that thread:
+- repository issues are the authoritative planning/work units for concrete features, bugs, design gaps, verification, and maintenance;
+- linked pull requests are implementation/review evidence and should not normally be duplicated as separate planning cards;
+- repository milestones are authoritative for product release targets such as Vincent `1.0.0` or CIC Station `0.2.0`;
+- this program roadmap is authoritative for M0-M8 cross-product outcomes;
+- product/requirements/ADRs remain authoritative for intent, normative requirements, and consequential decisions;
+- the GitHub Project provides triage, sequencing, priority, workstream, dependency, and current-status visibility without duplicating those authorities.
 
-- include issues and pull requests from both `Gordonfive/vincent` and `Gordonfive/cic-station`;
-- distinguish `Vincent`, `CIC Station`, and `Cross-product` work with a Product field rather than merging repositories;
-- include Status, Priority, Target release/milestone, Work type, and Dependency/blocked state fields;
-- use the program milestones M0-M8 as the cross-product planning layer while preserving each product's own SemVer roadmap;
-- do not duplicate requirement or ADR authority into Project fields; link to the authoritative repository documents/issues instead;
-- use the GitHub Project for planning visibility, not as an operational CIC Station database or replacement for Git history;
-- preserve the trunk-based rule that `main` is the only permanent branch in each repository.
+Project metadata should remain intentionally small:
+
+- Status: Backlog, Ready, In Progress, In Review, Verification, Done;
+- Product: Vincent, CIC Station, Cross-product;
+- Priority: P0 Critical, P1 High, P2 Normal, P3 Low;
+- Program Milestone: M0-M8 or Later/Unscheduled;
+- Workstream: a small controlled technical-domain list;
+- issue type should use GitHub's native organization issue types where available rather than a duplicate Project-only field.
+
+Use native GitHub issue dependencies/relationships for blocking and cross-repository sequencing. Do not create duplicate umbrella issues merely to make dependencies visible and do not maintain a separate manual Blocked field unless native dependency filtering proves insufficient.
+
+The default Project view should emphasize current attention rather than the complete backlog: Ready, In Progress, In Review, and Verification. Separate Inbox, Backlog, Verification, Roadmap, and Done views provide capture, recovery, and history without making the daily surface noisy.
 
 ## Cross-product acceptance rules
 
