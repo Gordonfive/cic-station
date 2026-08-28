@@ -1,6 +1,6 @@
 # CIC Station
 
-CIC Station is the reusable fleet-control application for Vincent. The repository remains private during development and is intended to become public under AGPLv3 at an explicit release gate.
+CIC Station is the reusable fleet-control application for Vincent. The repository is public during pre-release development; public visibility is not equivalent to stable release readiness or support status.
 
 The long-term CIC Station product is a self-hostable server application with a responsive web UI and authenticated API for enrollment, authorization, worker inventory, assignments, leases, approvals, health, results, and audit history.
 
@@ -15,7 +15,7 @@ This repository owns:
 - CIC Station product planning, requirements, architecture, and ADRs;
 - safe deployment templates and operational documentation.
 
-Gordonfive-specific worker inventory, enrollment and authorization state, assignments, results, audit records, and other operational data belong in the deployed CIC Station database and protected backups. Production secrets and private deployment configuration remain outside Git. Before public release, the entire Git history and release contents must pass a privacy, secret, infrastructure, and configuration audit.
+Gordonfive-specific worker inventory, enrollment and authorization state, assignments, results, audit records, and other operational data belong in the deployed CIC Station database and protected backups. Production secrets and private deployment configuration remain outside Git. Before a formal release, the complete Git history and release contents must pass the applicable privacy, secret, infrastructure, dependency, configuration, and release-content audit.
 
 Raw secrets, private keys, passwords, tokens, authentication caches, reusable enrollment credentials, and production data must never be committed.
 
