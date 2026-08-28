@@ -15,7 +15,7 @@ This repository owns:
 - CIC Station product planning, requirements, architecture, and ADRs;
 - safe deployment templates and operational documentation.
 
-Gordonfive-specific worker inventory, enrollment and authorization state, assignments, results, audit records, and other operational data belong in the deployed CIC Station database and protected backups. Production secrets and private deployment configuration remain outside Git. Before a formal release, the complete Git history and release contents must pass the applicable privacy, secret, infrastructure, dependency, configuration, and release-content audit.
+Logrus Box-specific worker inventory, enrollment and authorization state, assignments, results, audit records, and other operational data belong in the deployed CIC Station database and protected backups. Production secrets and private deployment configuration remain outside Git. Before a formal release, the complete Git history and release contents must pass the applicable privacy, secret, infrastructure, dependency, configuration, and release-content audit.
 
 Raw secrets, private keys, passwords, tokens, authentication caches, reusable enrollment credentials, and production data must never be committed.
 
