@@ -30,7 +30,7 @@ Check current remote state in both `Gordonfive/cic-station` and `Gordonfive/vinc
 
 `Gordonfive/cic-station` owns the reusable CIC Station web application, API, database schema/migrations, tests, packaging, product documentation, and program roadmap. Generic Vincent worker implementation belongs in `Gordonfive/vincent`.
 
-Private operational data belongs in the deployed CIC Station database, protected backups, deployment configuration, and secret systems—not Git. This repository remains private during development and may become public under AGPLv3 only after an explicit owner-approved release gate and complete history, secret, privacy, and configuration audit.
+Operational fleet data belongs in the deployed CIC Station database, protected backups, deployment configuration, and secret systems—not Git. The repository is public during pre-release development, so public-safe source, examples, tests, configuration, and documentation practices apply continuously. Public visibility does not remove the formal release audit or make operational data, credentials, private keys, authentication state, or production configuration appropriate for Git.
 
 ## Development workflow
 
