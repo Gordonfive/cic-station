@@ -15,29 +15,31 @@
 ## Current program state
 
 - The canonical documentation/governance reset is complete in both CIC Station and Vincent.
-- Vincent's ISO consolidation is integrated on `main`; Vincent remains in post-consolidation QA before physical Installer `0.1.0` build `0022` verification.
-- Vincent QA/fix activity remains separate from CIC Station implementation and is tracked in the Vincent repository rather than duplicated here.
+- Vincent QA cleanup has been consolidated to its `main`; physical installer/runtime verification remains the current Vincent gate.
 - The large workstation is intended to remain the first useful persistent Vincent worker and future first managed-worker CIC Station subject.
 - The old laptop remains the expendable installer/recovery test target.
-- CIC Station's first implementation proof may use conservative Git-backed coordination, but the product architecture is a self-hosted API/database/web application.
+- ADR-0017 establishes a multidimensional managed-worker state model: scheduling/availability, liveness/health, execution, and power are independent facts; Working/Available/Offline/Standby are derived operator-facing summaries rather than one canonical enum.
+- ADR-0018 establishes that the minimum persistent CIC Station service/API/database foundation precedes multi-worker lease coordination. Git is not the authoritative live lease/heartbeat database.
+- Issue #25 tracks the pre-schema domain-model refinement separating durable work items from assignments/selections, execution attempts, leases, and results.
 - The 0.1.0 operator-security baseline includes distinct operator identities, self-hostable local authentication, explicit least-privilege authorization, one-time first-admin bootstrap, revocable server-side sessions, separate service identities, administrative authentication recovery, and encrypted real operator/worker transport.
 - The approved worker-trust baseline uses a worker-generated asymmetric installation credential, operator approval bound to the exact public identity, proof-of-possession on subsequent connections, replay-resistant enrollment/bootstrap, explicit credential rotation/revocation/recovery transitions, and fail-closed CIC Station server-trust verification.
 - The approved worker-protocol baseline is explicitly versioned independently of product SemVer, declares compatibility rather than guessing, assumes network retries/duplicates can occur, uses stable idempotency identity for retryable state changes, and rejects stale/conflicting/out-of-order state transitions rather than relying on arrival order.
 - External OIDC/SSO, mTLS, asymmetric algorithm choice, hardware-backed keys, certificate-authority selection, reverse-proxy choice, REST/WebSocket/gRPC selection, and serialization format remain optional/later implementation decisions rather than baseline dependencies.
-- Reusable CIC Station application coding may begin in this repository under the documented source/operational-data, worker-trust, protocol, and security boundaries.
+- Reusable CIC Station application coding may begin in this repository under the documented source/operational-data, worker-trust, protocol, state-model, persistence, and security boundaries.
 
 ## Current blockers / gates
 
-- Vincent post-consolidation QA and physical build-0022 verification remain incomplete.
+- Vincent physical installer/runtime verification remains incomplete.
 - The large workstation has not yet completed the persistent bounded-work worker proof required before the first managed-worker integration proof.
 - CIC Station implementation must keep operational data, worker private credentials, secrets, and private production configuration out of Git.
 - Vincent client requirements/implementation must be aligned with the approved CIC Station worker-trust and protocol contract before the first managed-worker proof.
+- Issue #25 must be resolved before CIC Station 0.1.0 database/schema design hardens the work/attempt/lease/result relationships.
 - Lease clock authority/skew/restart semantics remain to be defined before the 0.3.0 multi-worker lease implementation.
 
 ## Next actions
 
-1. Complete Vincent post-consolidation QA and physical Installer `0.1.0` build `0022` verification.
-2. Bring the large workstation fully online as a bounded-work Vincent worker.
-3. Align Vincent with the approved asymmetric worker identity, proof-of-possession, server-trust, protocol-versioning, and retry/idempotency contract.
-4. Define and begin the CIC Station `0.1.0` application structure and data models for operators, workers/public identities, enrollment/authorization, protocol compatibility, assignments, results, and audit state.
-5. Preserve the documented security/protocol boundaries without treating early Git-backed coordination as the permanent operational architecture.
+1. Complete Vincent physical installer/runtime acceptance and bring the large workstation fully online as a bounded-work Vincent worker.
+2. Align Vincent with the approved asymmetric worker identity, proof-of-possession, server-trust, protocol-versioning, retry/idempotency, managed authorization, and task/credential isolation boundaries.
+3. Resolve CIC Station #25 and define the 0.1.0 application/domain model before schema implementation hardens it.
+4. Begin CIC Station 0.1.0 with the minimum persistent service/API/database foundation for operators, workers/public identities, enrollment/authorization, protocol compatibility, work items, attempts, results, and audit state.
+5. Prove the first managed worker in 0.2.0 through persistent operational authority before implementing multi-worker lease coordination in 0.3.0.
