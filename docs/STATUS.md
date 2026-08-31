@@ -1,21 +1,21 @@
 # CIC Station Status
 
-**Updated:** 2026-08-28
+**Updated:** 2026-08-31
 
 ## Repository state
 
 - The repository rename from `Gordonfive/mission-control` to `Gordonfive/cic-station` is complete; ownership subsequently moved to the Logrus Box organization, and `logrusbox/cic-station` is the canonical control-plane repository.
-- `logrusbox/cic-station` is public during pre-release development and is the canonical home for the reusable CIC Station application and CIC Station-specific product documentation. ADR-0020 supersedes the private-until-release visibility clause of ADR-0010 without changing the single-repository or source/operational-data boundary.
+- `logrusbox/cic-station` is public during pre-release development and is the canonical home for the reusable CIC Station application and CIC Station-specific component documentation. ADR-0020 supersedes the private-until-release visibility clause of ADR-0010 without changing the single-repository or source/operational-data boundary.
 - `logrusbox/vincent` is the canonical Vincent worker repository.
-- `logrusbox/vincent-program` owns the cross-product roadmap, integration issues, program status, and program governance.
+- `logrusbox/fleet` owns the Fleet roadmap, cross-component integration issues, Fleet status, and Fleet governance.
 - A third application repository is not planned. Private fleet information will be stored as deployed application data, with secrets and production configuration outside Git.
 - CIC Station is currently `0.1.0` build `0001`.
-- No CIC Station service, API, database schema, or web UI implementation has started yet; the repository currently contains the canonical CIC Station product/governance/security/protocol model and validation scaffolding.
+- No CIC Station service, API, database schema, or web UI implementation has started yet; the repository currently contains the canonical CIC Station component/governance/security/protocol model and validation scaffolding.
 - `main` is the only permanent branch; automatic deletion of merged temporary branches is enabled.
 - No GitHub repository ruleset is currently configured. The documented PR + CI, no-force-push, branch-protection, linear-history, and squash-merge policy remains to be enforced through GitHub settings.
-- GitHub Projects v2 is intentionally not part of the authoritative workflow. Repository issues remain concrete work authority, repository milestones own product release targets, and `logrusbox/vincent-program` owns program-level M0-M8 outcomes.
+- GitHub Projects v2 is intentionally not part of the authoritative workflow. Repository issues remain concrete work authority, repository milestones own component release targets, and `logrusbox/fleet` owns Fleet-level M0-M8 outcomes.
 
-## Current program state
+## Current Fleet state
 
 - The canonical documentation/governance reset is complete in both CIC Station and Vincent.
 - Vincent QA cleanup has been consolidated to its `main`; physical installer/runtime verification remains the current Vincent gate.
@@ -46,4 +46,4 @@
 2. Align Vincent with the approved asymmetric worker identity, proof-of-possession, server-trust, protocol-versioning, retry/idempotency, managed authorization, and task/credential isolation boundaries.
 3. Resolve CIC Station #25 and define the 0.1.0 application/domain model before schema implementation hardens it.
 4. Begin CIC Station 0.1.0 with the minimum persistent service/API/database foundation for operators, workers/public identities, enrollment/authorization, protocol compatibility, work items, attempts, results, and audit state.
-5. Prove the first managed worker through `logrusbox/vincent-program#2` before implementing multi-worker lease coordination in 0.3.0.
+5. Prove the first managed worker through the corresponding cross-component Fleet integration issue before implementing multi-worker lease coordination in 0.3.0.
