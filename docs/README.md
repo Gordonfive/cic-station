@@ -1,18 +1,18 @@
 # CIC Station Documentation
 
-This directory contains the canonical CIC Station product documentation.
+This directory contains the canonical CIC Station component documentation.
 
-The cross-product VINCENT program roadmap, program status, integration issues, and program-level ADRs are owned by [`logrusbox/vincent-program`](https://github.com/logrusbox/vincent-program).
+The Fleet roadmap, Fleet status, cross-component integration issues, and Fleet-level ADRs are owned by [`logrusbox/fleet`](https://github.com/logrusbox/fleet).
 
 ## Canonical documents
 
-- `PRODUCT.md` — CIC Station purpose, users, goals, non-goals, and product boundaries.
+- `PRODUCT.md` — CIC Station purpose, users, goals, non-goals, and component boundaries.
 - `REQUIREMENTS.md` — stable `MC-REQ-####` functional and non-functional requirements.
 - `ARCHITECTURE.md` — control-plane architecture and Vincent integration boundary.
-- `ROADMAP.md` — CIC Station product/release roadmap only.
+- `ROADMAP.md` — CIC Station component/release roadmap only.
 - `STATUS.md` — current CIC Station implementation, proof, and blocker state.
 - `decisions/README.md` — CIC Station ADR index.
-- `PROGRAM_ROADMAP.md` — migration pointer to the canonical program repository.
+- `PROGRAM_ROADMAP.md` — migration pointer to the canonical Fleet repository.
 
 ## Supporting material
 
@@ -25,7 +25,7 @@ The cross-product VINCENT program roadmap, program status, integration issues, a
 ## Lifecycle rules
 
 - Do not recreate permanent handoff, Project Start, or planned-feature backlog documents.
-- Consequential CIC Station decisions become CIC Station ADRs; genuinely cross-product program decisions belong in `logrusbox/vincent-program`.
+- Consequential CIC Station decisions become CIC Station ADRs; genuinely cross-component Fleet decisions belong in `logrusbox/fleet`.
 - Requirements retain their IDs permanently; superseded requirements keep their identifiers and status.
 - Completed migration/project-reset material belongs in Git history, not the active documentation tree.
 - Large raw logs, screenshots, generated builds, and CI bundles belong in Actions/release artifacts rather than ordinary Git history.
