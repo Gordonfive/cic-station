@@ -1,9 +1,9 @@
-# Vincent + CIC Station Program Roadmap
+# Fleet Roadmap Pointer
 
-The canonical cross-product VINCENT program roadmap moved to:
+The canonical Fleet cross-component roadmap is maintained at:
 
-- [`logrusbox/vincent-program/docs/PROGRAM_ROADMAP.md`](https://github.com/logrusbox/vincent-program/blob/main/docs/PROGRAM_ROADMAP.md)
+- [`logrusbox/fleet/docs/PROGRAM_ROADMAP.md`](https://github.com/logrusbox/fleet/blob/main/docs/PROGRAM_ROADMAP.md)
 
-This file is retained only as a migration pointer so old links do not silently become misleading. CIC Station product/release outcomes remain in [`ROADMAP.md`](ROADMAP.md).
+This file is retained only as a migration pointer so old CIC Station links continue to lead to the correct authority. CIC Station component/release outcomes remain in [`ROADMAP.md`](ROADMAP.md).
 
-Do not edit cross-product milestone content here. Program-level roadmap, integration issues, status, and program ADRs are owned by `logrusbox/vincent-program`.
+Do not edit Fleet milestone content here. Fleet-wide roadmap, cross-component integration issues, status, and Fleet ADRs are owned by `logrusbox/fleet`.
